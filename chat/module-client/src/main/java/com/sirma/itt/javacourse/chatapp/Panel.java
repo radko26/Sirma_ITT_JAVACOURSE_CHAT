@@ -7,33 +7,42 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- *
- *TODO
+ * 
+ * Abstract class that provides basic skeleton of all sub-panels.
  * 
  * @author Radoslav
  */
 public abstract class Panel extends JPanel {
 
 	private static final long serialVersionUID = -6217509860743225606L;
-	protected static final Point POINT_CENTER = GraphicsEnvironment
+	protected static final Point CENTER_POINT = GraphicsEnvironment
 			.getLocalGraphicsEnvironment().getCenterPoint();
+	protected static int width = 350;
+	protected static int height = 65;
 	protected JFrame applicationFrameWindow;
-	
-	protected Panel(JFrame frame){
+
+	/**
+	 * Initialises the running frame.
+	 * 
+	 * @param frame
+	 *            The frame.
+	 */
+	protected Panel(JFrame frame) {
 		applicationFrameWindow = frame;
 	}
-	
+
 	/**
 	 * Updates the components' title to the chosen language.
 	 */
 	abstract void updateGUI();
+
 	/**
 	 * Getter for the panel.
-	 * @return
-	 * The panel.
+	 * 
+	 * @return The panel.
 	 */
-	protected JPanel getPanel(){
+	protected JPanel getPanel() {
 		return this;
 	}
-	
+
 }

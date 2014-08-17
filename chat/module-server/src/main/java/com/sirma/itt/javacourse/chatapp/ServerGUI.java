@@ -81,6 +81,7 @@ public class ServerGUI extends JFrame implements ActionListener, MouseListener {
 		setVisible(true);
 		
 		startServer();
+		LogHandler.setUpLogging(logField);
 		
 	}
 	
@@ -89,7 +90,7 @@ public class ServerGUI extends JFrame implements ActionListener, MouseListener {
 			server= new Server();
 			server.execute();
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Eroro");
 		}
 	}
 

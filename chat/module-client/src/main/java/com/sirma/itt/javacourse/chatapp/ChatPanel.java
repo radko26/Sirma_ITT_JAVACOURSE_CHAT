@@ -1,6 +1,5 @@
 package com.sirma.itt.javacourse.chatapp;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
@@ -52,9 +51,6 @@ public class ChatPanel extends Panel {
 		add(onlineUsersFieldScroll);
 		add(inputMsgField);
 		add(closeSessionButton);
-		
-		
-
 	}
 
 	@Override

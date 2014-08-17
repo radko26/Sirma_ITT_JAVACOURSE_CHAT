@@ -16,15 +16,13 @@ import javax.swing.JPopupMenu;
  * 
  * @author Radoslav
  */
-public class ClientGUI extends JFrame implements MouseListener{
+public class ClientGUI extends JFrame implements MouseListener {
 
 	private static final long serialVersionUID = -5998670976677266097L;
-	private static final Point CENTER_POINT = GraphicsEnvironment
-			.getLocalGraphicsEnvironment().getCenterPoint();
-	
 	private JPopupMenu languagePopUpMenu = new JPopupMenu();
-	private JMenuItem languageOption = new JMenuItem(
-			ContentLanguageManager.getContent("language_option").concat(ContentLanguageManager.getNextLanguage()));
+	private JMenuItem languageOption = new JMenuItem(ContentLanguageManager
+			.getContent("language_option").concat(
+					ContentLanguageManager.getNextLanguage()));
 
 	/**
 	 * Initialises the main frame window.
@@ -38,7 +36,8 @@ public class ClientGUI extends JFrame implements MouseListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ContentLanguageManager.setLanguage(ContentLanguageManager.getNextLanguage());
+				ContentLanguageManager.setLanguage(ContentLanguageManager
+						.getNextLanguage());
 				Panel panels = (Panel) getContentPane();
 				panels.updateGUI();
 				updateGUI();
@@ -46,8 +45,7 @@ public class ClientGUI extends JFrame implements MouseListener{
 		});
 		languagePopUpMenu.add(languageOption);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(CENTER_POINT.x - getWidth() / 2, CENTER_POINT.y - getHeight()
-				/ 2, getWidth(), getHeight());
+		
 		setVisible(true);
 	}
 
@@ -62,7 +60,6 @@ public class ClientGUI extends JFrame implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-
 	}
 
 	@Override
@@ -75,28 +72,23 @@ public class ClientGUI extends JFrame implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	/**
 	 * Updates frame components with the new language.
 	 */
-	public void updateGUI() { 
+	public void updateGUI() {
 		setTitle(ContentLanguageManager.getContent("frame_title"));
-		languageOption.setText(ContentLanguageManager.getContent("language_option")
-				.concat(ContentLanguageManager.getNextLanguage()));
+		languageOption.setText(ContentLanguageManager.getContent(
+				"language_option").concat(
+				ContentLanguageManager.getNextLanguage()));
 	}
 }
