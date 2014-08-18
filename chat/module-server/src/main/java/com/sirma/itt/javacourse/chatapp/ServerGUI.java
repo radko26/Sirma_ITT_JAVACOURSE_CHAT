@@ -12,8 +12,10 @@ import java.awt.event.MouseListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
@@ -41,7 +43,7 @@ public class ServerGUI extends JFrame implements ActionListener, MouseListener {
 	private JPopupMenu languagePopUpMenu = new JPopupMenu();
 	private JMenuItem languageOption = new JMenuItem(
 			ContentLanguageManager.getContent("language_option"));
-	
+
 	private Server server;
 
 	/**
@@ -65,9 +67,10 @@ public class ServerGUI extends JFrame implements ActionListener, MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ContentLanguageManager.setLanguage(ContentLanguageManager.getNextLanguage());
+				ContentLanguageManager.setLanguage(ContentLanguageManager
+						.getNextLanguage());
 				updateGUI();
-				
+
 			}
 		});
 		logField.addMouseListener(this);
@@ -79,18 +82,27 @@ public class ServerGUI extends JFrame implements ActionListener, MouseListener {
 		setBounds(POINT_CENTER.x - getWidth() / 2, POINT_CENTER.y - getHeight()
 				/ 2, getWidth(), getHeight());
 		setVisible(true);
-		
+
 		startServer();
 		LogHandler.setUpLogging(logField);
-		
+
 	}
-	
-	private void startServer(){
+
+	/**
+	 * Creates {@link Server} instance and execute it.
+	 */
+	private void startServer() {
 		try {
-			server= new Server();
-			server.execute();
+			server = new Server();
+			server.start();
 		} catch (IOException e) {
-			System.out.println("Eroro");
+			JOptionPane errorPane = new JOptionPane(
+					ContentLanguageManager.getContent("error_server_port_used"));
+			JDialog errorPaneDialog = errorPane
+					.createDialog(ContentLanguageManager
+							.getContent("error_server_title"));
+			errorPaneDialog.setVisible(true);
+			System.exit(0);
 		}
 	}
 
@@ -102,18 +114,24 @@ public class ServerGUI extends JFrame implements ActionListener, MouseListener {
 		setTitle(ContentLanguageManager.getContent("frame_title"));
 		stopServerButton.setText(ContentLanguageManager
 				.getContent("stop_server_button"));
-		languageOption.setText(ContentLanguageManager.getContent("language_option")
-				.concat(ContentLanguageManager.getNextLanguage()));
+		languageOption.setText(ContentLanguageManager.getContent(
+				"language_option").concat(
+				ContentLanguageManager.getNextLanguage()));
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			server.stop();
+			server.stopServer();
 		} catch (IOException e1) {
 			logField.append(e1.getMessage());
 		}
-		System.out.println("Stopping server");
+		JOptionPane errorPane = new JOptionPane(
+				ContentLanguageManager.getContent("server_stopped_text"));
+		JDialog errorPaneDialog = errorPane.createDialog("");
+		errorPaneDialog.setVisible(true);
+		System.exit(0);
 
 	}
 
@@ -122,7 +140,7 @@ public class ServerGUI extends JFrame implements ActionListener, MouseListener {
 		// TODO Auto-generated method stub
 
 	}
- 
+
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if (e.getButton() == MouseEvent.BUTTON3) {

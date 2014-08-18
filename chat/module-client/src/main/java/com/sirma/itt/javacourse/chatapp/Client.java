@@ -9,7 +9,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
 import com.sirma.itt.javacourse.chattapp.Request;
@@ -27,7 +29,7 @@ public class Client extends SwingWorker<Void, Void> {
 	private AtomicBoolean running;
 	private JFrame frame;
 	private BlockingQueue<Request> fromServer = new LinkedBlockingQueue<>();
-	private BlockingQueue<Request> toServer = new LinkedBlockingQueue<>();
+	private static BlockingQueue<Request> toServer = new LinkedBlockingQueue<>();
 
 	/**
 	 * Initialises the client login without using GUI.
@@ -70,10 +72,18 @@ public class Client extends SwingWorker<Void, Void> {
 	protected Void doInBackground() {
 		new ClientReader(running, server, fromServer).start();
 		new ClientWriter(running, server, toServer).start();
+		if (frame != null) {
+			LoginPanel loginPanel = (LoginPanel) frame.getContentPane();
+			toServer.add(new Request().setContent(
+					loginPanel.getEnteredUsername())
+					.setType(Request.LOGIN_AUTH));
+		} else {
+			toServer.add(new Request().setContent("radko").setType(
+					Request.LOGIN_AUTH));
+		}
 
-		toServer.add(new Request().setContent("HOHAHAHHA").setType(
-				Request.LOGIN_AUTH));
-		ChatPanel chatPanel;
+		ChatPanel chatPanel = null;
+		System.out.println(running.hashCode());
 		while (running.get()) {
 			if (!fromServer.isEmpty()) {
 				Request request = fromServer.poll();
@@ -82,13 +92,28 @@ public class Client extends SwingWorker<Void, Void> {
 					running.set(false);
 					LoginPanel loginPanel = (LoginPanel) frame.getContentPane();
 					loginPanel.setErrorMsg();
-				} else {
-					chatPanel = new ChatPanel(frame);
-					frame.getContentPane().removeAll();
-					frame.setContentPane(chatPanel);
+				} else if (request.getType() == Request.LOGIN_AUTH) {
+					try {// to change to GUI panel.
+						chatPanel = new ChatPanel(frame);
+						frame.getContentPane().removeAll();
+						frame.setContentPane(chatPanel);
+						frame.getContentPane().repaint();
+						frame.pack();
 
-					frame.getContentPane().repaint();
-					frame.pack();
+						chatPanel.log(request.getContent());
+						LogHandler.log(request.getContent());
+					} catch (NullPointerException e) {// without GUI.
+						LogHandler.log(request.getContent());
+					}
+				} else if (request.getType() == Request.MESSAGE) {
+					try {
+						LogHandler.log(request.getContent());
+						chatPanel.log(request.getContent());
+					} catch (NullPointerException e) {
+						LogHandler.log(request.getContent());
+					}
+				} else {
+					// ONLINE USERS REQUEST
 				}
 			}
 		}
@@ -98,9 +123,44 @@ public class Client extends SwingWorker<Void, Void> {
 
 	@Override
 	protected void done() {
-		System.out.println("Disconnecting from the server");
+		try {
+			server.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if (frame != null) {
+
+			JOptionPane errorPane = new JOptionPane("Client disconnected.");
+			JDialog errorPaneDialog = errorPane.createDialog(frame,"Disconnected");
+			errorPaneDialog.setVisible(true);
+		}
+
+		LogHandler.log("disconnecting");
+		System.exit(0);
 	}
 
+	/**
+	 * 
+	 * @param request
+	 */
+	public static void addMessageRequest(String content) {
+		toServer.add(new Request().setType(Request.MESSAGE).setContent(content));
+	}
+
+	/**
+	 * Stops the client.
+	 */
+	public void stopClientRunning() {
+		running.set(false);
+	}
+
+	/**
+	 * Main method to start it without GUI.
+	 * 
+	 * @param args
+	 * @throws UnknownHostException
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws UnknownHostException,
 			IOException {
 		Executor exe = new ScheduledThreadPoolExecutor(5);

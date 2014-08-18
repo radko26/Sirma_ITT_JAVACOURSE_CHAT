@@ -45,17 +45,14 @@ public class ClientWriter extends Thread {
 			while (running.get()) {
 				if (!toServer.isEmpty()) {
 					Request request = toServer.poll();
-					System.out.println(request.getContent());
 					processor.sendRequest(request);
 				}
 			}
 		} catch (IOException e) {
-			System.out.println("Server closed");
-		} finally {
-			if (processor != null) {
-				processor.closeStream();
-			}
+			LogHandler.log("Server closed");
 		}
-
+		if (processor != null) {
+			processor.closeStream();
+		}
 	}
 }

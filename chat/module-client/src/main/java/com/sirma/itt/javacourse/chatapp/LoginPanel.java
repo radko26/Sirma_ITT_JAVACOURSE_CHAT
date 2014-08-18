@@ -6,14 +6,11 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.UnknownHostException;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.logging.ErrorManager;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -66,6 +63,7 @@ public class LoginPanel extends Panel implements ActionListener {
 		errorField.setVisible(true);
 		errorFromHost = false;
 		errorField.setText(ContentLanguageManager.getContent("invalid_username_message"));
+		usernameField.setEditable(true);
 	}
 
 	@Override
@@ -79,8 +77,14 @@ public class LoginPanel extends Panel implements ActionListener {
 			errorField.setText(ContentLanguageManager.getContent("server_not_found"));
 		}
 	}
-	
-	
+	/**
+	 * Gets the content of the usernameField.
+	 * @return
+	 * Its content.
+	 */
+	public String getEnteredUsername(){
+		return usernameField.getText();
+	}
 	
 	/**
 	 * Changes the screen to the next state, tries to connect to the server.
@@ -89,7 +93,8 @@ public class LoginPanel extends Panel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			new Client(new AtomicBoolean(true),applicationFrameWindow).execute();
+			new Client(running,applicationFrameWindow).execute();
+			usernameField.setEditable(false);
 		} catch (IOException e1) {
 			errorField.setVisible(true);
 			errorField.setText(ContentLanguageManager.getContent("server_not_found"));

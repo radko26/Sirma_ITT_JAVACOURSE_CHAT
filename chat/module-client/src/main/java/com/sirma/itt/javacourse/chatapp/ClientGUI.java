@@ -67,7 +67,6 @@ public class ClientGUI extends JFrame implements MouseListener {
 		if (e.getButton() == MouseEvent.BUTTON3) {
 			languagePopUpMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
-
 	}
 
 	@Override

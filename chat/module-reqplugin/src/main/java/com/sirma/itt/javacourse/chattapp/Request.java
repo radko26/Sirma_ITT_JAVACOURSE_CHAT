@@ -13,6 +13,8 @@ public class Request implements Serializable {
 	private static final long serialVersionUID = -3234091786911332542L;
 	public static final int LOGIN_AUTH = 1;
 	public static final int MESSAGE = 2;
+	public static final int CONNECTION = 3;
+	
 
 	private int type;
 	private boolean isSuccesful;

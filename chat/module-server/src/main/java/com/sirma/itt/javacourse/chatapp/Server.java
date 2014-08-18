@@ -15,39 +15,47 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 
- * 
  * @author Radoslav
  */
-public class Server extends SwingWorker<Void, Void>{
+public class Server extends Thread {
 	private static final int PORT = 7001;
 	private ServerSocket server;
 	private Socket client;
-	private AtomicBoolean running=new AtomicBoolean(true);
-	private List<ClientThread> connected = Collections.synchronizedList(new ArrayList<ClientThread>());
-	
-	public Server() throws IOException{
-		server=new ServerSocket(PORT);
+	private AtomicBoolean running = new AtomicBoolean(true);
+	private List<ClientHandleThread> connected = Collections
+			.synchronizedList(new ArrayList<ClientHandleThread>());
+
+	/**
+	 * Initialises {@link ServerSocket}.
+	 * 
+	 * @throws IOException
+	 *             If the port is not available.
+	 */
+	public Server() throws IOException {
+		server = new ServerSocket(PORT);
 	}
-	
-	
-	public void stop() throws IOException{
+
+	/**
+	 * Stops the server.
+	 * 
+	 * @throws IOException
+	 *             If server cannot be closed.
+	 */
+	public void stopServer() throws IOException {
 		running.set(false);
-		server.close();
-	}
-	
-	@Override
-	protected Void doInBackground() throws Exception {
-		
-		while(running.get()){
-			client = server.accept();
-			new ClientThread(client, running,connected).start();
-		}
-		return null;
+			server.close();
 	}
 
 	@Override
-	protected void done() {
-		System.out.println("Server is stopped");
+	public void run() {
+		while (running.get()) {
+			try {
+				client = server.accept();
+				new ClientHandleThread(client, running, connected).start();
+			} catch (IOException e) {
+				running.set(false);
+			}
+		}
 	}
-	
+
 }

@@ -2,6 +2,7 @@ package com.sirma.itt.javacourse.chatapp;
 
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,6 +21,7 @@ public abstract class Panel extends JPanel {
 	protected static int width = 350;
 	protected static int height = 65;
 	protected JFrame applicationFrameWindow;
+	protected static AtomicBoolean running = new AtomicBoolean(true);
 
 	/**
 	 * Initialises the running frame.
