@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import com.sirma.itt.javacourse.chattapp.Request;
-import com.sirma.itt.javacourse.chattapp.RequestProcessor;
+import com.sirma.itt.javacourse.chatapp.Request;
+import com.sirma.itt.javacourse.chatapp.RequestProcessor;
 
 /**
  * Class that cope with each client.

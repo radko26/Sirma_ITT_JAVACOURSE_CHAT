@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.chattapp;
+package com.sirma.itt.javacourse.chatapp;
 
 import java.io.Serializable;
 import java.util.Collection;

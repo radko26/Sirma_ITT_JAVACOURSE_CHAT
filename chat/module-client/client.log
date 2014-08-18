@@ -1,170 +1,30 @@
 INFO  com.sirma.itt.javacourse.chatapp.Client  - <radko>is trying to connect.
-INFO  com.sirma.itt.javacourse.chatapp.Client  - <radko> has connected.
+INFO  com.sirma.itt.javacourse.chatapp.Client  - [10:40:31] <radko> has connected.
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Client added
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - <radko> has disconnected. msg sent!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
+INFO  com.sirma.itt.javacourse.chatapp.Client  - [10:40:31] <radko> has disconnected. msg sent!
 INFO  com.sirma.itt.javacourse.chatapp.Client  - <radko>is trying to connect.
-INFO  com.sirma.itt.javacourse.chatapp.Client  - <radko> has connected.
+INFO  com.sirma.itt.javacourse.chatapp.Client  - [10:49:05] <radko> has connected.
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Client added
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - <radko> has disconnected. msg sent!
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
+INFO  com.sirma.itt.javacourse.chatapp.Client  - [10:49:05] <radko> has disconnected. msg sent!
+INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
 INFO  com.sirma.itt.javacourse.chatapp.Client  - <radko>is trying to connect.
-INFO  com.sirma.itt.javacourse.chatapp.Client  - <radko> has connected.
+INFO  com.sirma.itt.javacourse.chatapp.Client  - [10:55:03] <radko> has connected.
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Client added
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - <radko> has disconnected. msg sent!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - [07:21:18]Welcome kok!
-
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome kok!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - [07:21:36]<krusto> has connected.
-
-INFO  com.sirma.itt.javacourse.chatapp.Client  - [07:21:36]Welcome krusto!
-
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome krusto!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - [07:21:42]kak e sanko
-
-INFO  com.sirma.itt.javacourse.chatapp.Client  - [07:21:42]<krusto> Kak e sanko
-
-INFO  com.sirma.itt.javacourse.chatapp.Client  - [07:21:49]<kok> Dobre mlad
-
-INFO  com.sirma.itt.javacourse.chatapp.Client  - [07:21:49]dobre mlad
-
-INFO  com.sirma.itt.javacourse.chatapp.Client  - [07:25:47]<krusto> has disconnected.
-
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - <riki> has connected.
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome riki!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome riki!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - <riki> has disconnected.
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome riok!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome sao!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome kok!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome oksok!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome saoko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome oks!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome rad!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome sa!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome canko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome asgas!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
+INFO  com.sirma.itt.javacourse.chatapp.Client  - [10:55:03] <radko> has disconnected. msg sent!
+INFO  com.sirma.itt.javacourse.chatapp.Client  - <radko>is trying to connect.
+INFO  com.sirma.itt.javacourse.chatapp.Client  - [10:58:29] <radko> has connected.
+INFO  com.sirma.itt.javacourse.chatapp.Client  - Client added
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
+INFO  com.sirma.itt.javacourse.chatapp.Client  - [10:58:29] <radko> has disconnected. msg sent!
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome safas!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
+INFO  com.sirma.itt.javacourse.chatapp.Client  - <radko>is trying to connect.
+INFO  com.sirma.itt.javacourse.chatapp.Client  - [10:59:10] <radko> has connected.
+INFO  com.sirma.itt.javacourse.chatapp.Client  - Client added
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome sa!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radlkpo!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome ras!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome as!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome simi!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome asfa!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome asf!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome sani!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome sanko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome sanko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome grisha!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome sanko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome saro!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome varo!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome sarko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome marko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome asf!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome asfg!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome rosko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome gligan!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - disconnecting
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome sanko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome radko!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Welcome paco!
-INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed
+INFO  com.sirma.itt.javacourse.chatapp.Client  - [10:59:10] <radko> has disconnected. msg sent!
 INFO  com.sirma.itt.javacourse.chatapp.Client  - Server is closed

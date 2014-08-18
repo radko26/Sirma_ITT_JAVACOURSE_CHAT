@@ -6,20 +6,21 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * 
+ * Thread that starts the {@link ServerSocket}.
  * @author Radoslav
  */
 public class Server extends Thread {
-	private static final int PORT = 7001;
+	private static int PORT;
 	private ServerSocket server;
 	private Socket client;
 	private AtomicBoolean running = new AtomicBoolean(true);
 	private List<ClientHandleThread> connected = Collections
 			.synchronizedList(new ArrayList<ClientHandleThread>());
-	
+
 	/**
 	 * Initialises {@link ServerSocket}.
 	 * 
@@ -27,6 +28,7 @@ public class Server extends Thread {
 	 *             If the port is not available.
 	 */
 	public Server() throws IOException {
+		setConnectionProperties();
 		server = new ServerSocket(PORT);
 	}
 
@@ -58,6 +60,20 @@ public class Server extends Thread {
 	 */
 	public synchronized List<ClientHandleThread> getConnected() {
 		return connected;
+	}
+
+	/**
+	 * Loads the property file and sets the host and the port.
+	 * 
+	 * @throws IOException
+	 *             For any problems with the input stream.
+	 */
+	private void setConnectionProperties() throws IOException {
+		Properties properties = new Properties();
+		properties
+				.load(this.getClass().getResourceAsStream("setup.properties"));
+		PORT = Integer.valueOf(properties.getProperty("port", "7001"));
+		ContentLanguageManager.setLanguage(properties.getProperty("lang"));
 	}
 
 	@Override

@@ -11,8 +11,8 @@ import javax.sound.midi.Receiver;
 
 import org.junit.Test;
 
-import com.sirma.itt.javacourse.chattapp.Request;
-import com.sirma.itt.javacourse.chattapp.RequestProcessor;
+import com.sirma.itt.javacourse.chatapp.Request;
+import com.sirma.itt.javacourse.chatapp.RequestProcessor;
 
 /**
  * Tests whether {@link Request} and {@link RequestProcessor} communicate

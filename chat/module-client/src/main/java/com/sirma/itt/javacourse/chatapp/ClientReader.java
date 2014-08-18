@@ -5,8 +5,8 @@ import java.net.Socket;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import com.sirma.itt.javacourse.chattapp.Request;
-import com.sirma.itt.javacourse.chattapp.RequestProcessor;
+import com.sirma.itt.javacourse.chatapp.Request;
+import com.sirma.itt.javacourse.chatapp.RequestProcessor;
 
 /**
  * Thread that listens for incoming requests from the server.

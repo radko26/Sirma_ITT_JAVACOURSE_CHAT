@@ -1,10 +1,12 @@
 package com.sirma.itt.javacourse.chatapp;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
@@ -20,7 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
-import com.sirma.itt.javacourse.chattapp.Request;
+import com.sirma.itt.javacourse.chatapp.Request;
 
 /**
  * Class that connects to the server on the given HOST/PORT.It starts two
@@ -31,8 +33,8 @@ import com.sirma.itt.javacourse.chattapp.Request;
  */
 public class Client extends SwingWorker<Void, Void> {
 
-	private static final int PORT = 7001;
-	private static final String HOST = "localhost";
+	private static int PORT;
+	private static String HOST;
 	private static BlockingQueue<Request> toServer = new LinkedBlockingQueue<>();
 	private BlockingQueue<Request> fromServer = new LinkedBlockingQueue<>();
 	private Set<String> onlineUsers;
@@ -54,8 +56,10 @@ public class Client extends SwingWorker<Void, Void> {
 	 */
 	public Client(AtomicBoolean running) throws UnknownHostException,
 			IOException {
+		setConnectionProperties();
 		server = new Socket(HOST, PORT);
 		this.running = running;
+
 	}
 
 	/**
@@ -73,9 +77,26 @@ public class Client extends SwingWorker<Void, Void> {
 	 */
 	public Client(AtomicBoolean running, JFrame frame)
 			throws UnknownHostException, IOException {
+		setConnectionProperties();
 		server = new Socket(HOST, PORT);
 		this.running = running;
 		this.frame = frame;
+
+	}
+
+	/**
+	 * Loads the property file and sets the host and the port.
+	 * 
+	 * @throws IOException
+	 *             For any problems with the input stream.
+	 */
+	private void setConnectionProperties() throws IOException {
+		Properties properties = new Properties();
+		properties
+				.load(this.getClass().getResourceAsStream("setup.properties"));
+		HOST = properties.getProperty("host", "localhost");
+		PORT = Integer.valueOf(properties.getProperty("port", "7001"));
+		ContentLanguageManager.setLanguage(properties.getProperty("lang"));
 	}
 
 	@Override
@@ -174,7 +195,7 @@ public class Client extends SwingWorker<Void, Void> {
 			list.append(user).append("\n");
 		}
 		SwingUtilities.invokeLater(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				panel.getOnlineUsersField().setText(list.toString());
