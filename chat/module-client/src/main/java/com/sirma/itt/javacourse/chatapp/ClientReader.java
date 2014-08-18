@@ -40,8 +40,7 @@ public class ClientReader extends Thread {
 	public void run() {
 		RequestProcessor reader = null;
 		try {
-			reader = new RequestProcessor(
-					server.getInputStream());
+			reader = new RequestProcessor(server.getInputStream());
 			Request message;
 			while (running.get()) {
 				message = reader.receiveRequest();
@@ -50,7 +49,7 @@ public class ClientReader extends Thread {
 		} catch (IOException | ClassNotFoundException e) {
 			LogHandler.log("Server is closed");
 		}
-		if(reader!=null){
+		if (reader != null) {
 			reader.closeStream();
 		}
 	}

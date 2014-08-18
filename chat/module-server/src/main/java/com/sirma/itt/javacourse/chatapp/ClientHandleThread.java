@@ -2,7 +2,12 @@ package com.sirma.itt.javacourse.chatapp;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.sirma.itt.javacourse.chattapp.Request;
@@ -14,6 +19,10 @@ import com.sirma.itt.javacourse.chattapp.RequestProcessor;
  * @author Radoslav
  */
 public class ClientHandleThread extends Thread {
+	private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat(
+			"hh:mm:ss");
+	private static Set<String> onlineUsers = Collections
+			.synchronizedSet(new HashSet<String>());
 	private Socket client;
 	private AtomicBoolean running;
 	private List<ClientHandleThread> connected;
@@ -40,29 +49,36 @@ public class ClientHandleThread extends Thread {
 	@Override
 	public void run() {
 		Request userAuth = null;
+		// userAuth holds the username as content if it connected to the server.
 		try {
 			processor = new RequestProcessor(client.getInputStream(),
 					client.getOutputStream());
 			userAuth = processor.receiveRequest();
-			LogHandler.log(new StringBuilder("<").append(userAuth.getContent())
-					.append(">").append("is trying to connect.").toString());// trying
-																				// to
-																				// connect
-																				// msg logged
+			// Logs the try-connect msg.
+
+			LogHandler.log(new StringBuilder().append("<")
+					.append(userAuth.getContent()).append(">")
+					.append("is trying to connect.").toString());
 			if (checkUsernameAuth(userAuth)) {
-				String msg = new StringBuilder("<")
-						.append(userAuth.getContent()).append("> ")
+
+				String msg = new StringBuilder().append("[")
+						.append(TIME_FORMAT.format(new Date())).append("] ")
+						.append("<").append(userAuth.getContent()).append("> ")
 						.append("has connected.").toString();
-				broadcastToOthers(new Request().setType(Request.MESSAGE)
+				broadcastToOthers(new Request().setType(Request.CONNECTION)
 						.setContent(msg));
 				LogHandler.log(msg);// connected msg
 
 				LogHandler.log("Client added");// added to the list of clients.
 				connected.add(this);
+				onlineUsers.add(userAuth.getContent());
 				processor.sendRequest(new Request().setType(Request.LOGIN_AUTH)
 						.setSuccessful(true)
-						.setContent("Welcome " + userAuth.getContent() + "!"));
+						.setContent("Welcome " + userAuth.getContent() + "!")
+						.addCollection(onlineUsers));
+
 			} else {
+
 				LogHandler.log(new StringBuilder("<")
 						.append(userAuth.getContent()).append("> ")
 						.append("username validation failed").toString());
@@ -70,26 +86,36 @@ public class ClientHandleThread extends Thread {
 						.setSuccessful(false).setContent("Invalid name"));
 				processor.closeStream();
 				client.close();
+
 			}
 			// Receiving requests.
 			while (running.get()) {
-				Request msg = processor.receiveRequest();
-				processor.sendRequest(msg);
 
-				broadcastToOthers(handleChatMessages(msg, userAuth.getContent()));
+				Request msg = handleChatMessages(processor.receiveRequest(),
+						userAuth.getContent());
+				processor.sendRequest(msg);
+				broadcastToOthers(msg);
+
 				LogHandler.log("broadcasting to all " + msg.getContent());
+
 			}
 		} catch (IOException | ClassNotFoundException e) {
 			if (e instanceof IOException) {
+				// User has disconnected.
 				if (userAuth != null && !client.isClosed()) {
 					Request disconnect = new Request().setType(
 							Request.CONNECTION).setContent(
-							new StringBuilder("<")
+							new StringBuilder().append("[")
+									.append(TIME_FORMAT.format(new Date()))
+									.append("] ").append("<")
 									.append(userAuth.getContent()).append("> ")
-									.append("has disconnected.").toString());// constructing
-																				// disconnected
-																				// msg
-					connected.remove(this);
+									.append("has disconnected.").toString());
+					synchronized (connected) {
+						connected.remove(this);
+					}
+					synchronized (onlineUsers) {
+						onlineUsers.remove(userAuth.getContent());
+					}
 					try {
 						client.close();// tries to close the socket.
 					} catch (IOException e2) {
@@ -104,6 +130,7 @@ public class ClientHandleThread extends Thread {
 					}
 					LogHandler.log(disconnect.getContent() + " msg sent!");
 				}
+
 			} else {
 				LogHandler.log(e.toString());
 			}
@@ -111,30 +138,39 @@ public class ClientHandleThread extends Thread {
 			if (processor != null) {
 				processor.closeStream();
 			}
+			if (client != null) {
+				try {
+					client.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
 	/**
 	 * Modifies the content of the message request.
+	 * 
 	 * @param request
-	 * The request.
-	 * @return
-	 * The request with modified content.
+	 *            The request.
+	 * @return The request with modified content.
 	 */
-	private Request handleChatMessages(Request request, String senderUsername){
+	private Request handleChatMessages(Request request, String senderUsername) {
 		StringBuilder newContent = new StringBuilder();
-		newContent.append("<").append(senderUsername).append(">");
+		newContent.append("[").append(TIME_FORMAT.format(new Date()))
+				.append("] ");
+		newContent.append("<").append(senderUsername).append("> ");
 		StringBuffer message = new StringBuffer(request.getContent().trim());
-		char firstLetter  = message.charAt(0);
-		if(firstLetter >= 'a' && firstLetter <='z'){
+		char firstLetter = message.charAt(0);
+		if (firstLetter >= 'a' && firstLetter <= 'z') {
 			firstLetter = (char) (firstLetter - 'a' + 'A');
 		}
 		message.setCharAt(0, firstLetter);
-		newContent.append(" ").append(message.toString());
+		newContent.append(message.toString());
 		request.setContent(newContent.toString());
 		return request;
 	}
-	
+
 	/**
 	 * Checks whether the given username is valid.
 	 * 

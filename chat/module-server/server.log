@@ -1,334 +1,474 @@
-INFO  Server  - 04:25:05 HOHAHAHHA has connected
+INFO  Server  - 07:21:18 <kok>is trying to connect.
 
-INFO  Server  - 04:25:09 HOHAHAHHA has disconnected
+INFO  Server  - 07:21:18 <kok> has connected.
 
-INFO  Server  - 12:24:43 HOHAHAHHA has connected
+INFO  Server  - 07:21:18 Client added
 
-INFO  Server  - 12:24:58 HOHAHAHHA has disconnected
+INFO  Server  - 07:21:36 <krusto>is trying to connect.
 
-INFO  Server  - 01:37:42 HOHAHAHHA has connected
+INFO  Server  - 07:21:36 <krusto> has connected.
 
-INFO  Server  - 01:38:15 HOHAHAHHA has disconnected
+INFO  Server  - 07:21:36 Client added
 
-INFO  Server  - 01:38:45 HOHAHAHHA has connected
+INFO  Server  - 07:21:42 broadcasting to all <krusto> Kak e sanko
 
-INFO  Server  - 01:38:55 HOHAHAHHA has disconnected
+INFO  Server  - 07:21:49 broadcasting to all <kok> Dobre mlad
 
-INFO  Server  - 01:40:29 HOHAHAHHA has connected
+INFO  Server  - 07:25:47 <krusto> has disconnected. msg sent!
 
-INFO  Server  - 01:40:42 HOHAHAHHA has disconnected
+INFO  Server  - 07:25:48 <kok> has disconnected. msg sent!
 
-INFO  Server  - 01:43:03 HOHAHAHHA has connected
+INFO  Server  - 07:46:06 <radko>is trying to connect.
 
-INFO  Server  - 01:43:16 HOHAHAHHA has disconnected
+INFO  Server  - 07:46:06 <radko> has connected.
 
-INFO  Server  - 01:44:35 error in sending it to the other connected
+INFO  Server  - 07:46:06 Client added
 
-INFO  Server  - 01:44:35 HOHAHAHHA has disconnected
+INFO  Server  - 07:46:21 <riki>is trying to connect.
 
-INFO  Server  - 01:44:41 error in sending it to the other connected
+INFO  Server  - 07:46:21 <riki> has connected.
 
-INFO  Server  - 01:44:41 HOHAHAHHA has disconnected
+INFO  Server  - 07:46:21 Client added
 
-INFO  Server  - 01:44:44 error in sending it to the other connected
+INFO  Server  - 07:46:26 <riki> has disconnected. msg sent!
 
-INFO  Server  - 01:44:44 HOHAHAHHA has disconnected
+INFO  Server  - 07:46:40 <radko> has disconnected. msg sent!
 
-INFO  Server  - 01:44:45 error in sending it to the other connected
+INFO  Server  - 07:47:54 <radko>is trying to connect.
 
-INFO  Server  - 01:44:45 HOHAHAHHA has disconnected
+INFO  Server  - 07:47:54 <radko> has connected.
 
-INFO  Server  - 01:45:53 HOHAHAHHA has connected
+INFO  Server  - 07:47:54 Client added
 
-INFO  Server  - 01:46:32 HOHAHAHHA has disconnected
+INFO  Server  - 07:47:58 <radko> has disconnected. msg sent!
 
-INFO  Server  - 01:46:37 HOHAHAHHA has connected
+INFO  Server  - 07:48:01 <radko>is trying to connect.
 
-INFO  Server  - 01:46:39 HOHAHAHHA has disconnected
+INFO  Server  - 07:48:01 <radko> has connected.
 
-INFO  Server  - 01:48:06 HOHAHAHHA has connected
+INFO  Server  - 07:48:01 Client added
 
-INFO  Server  - 01:48:17 HOHAHAHHA has disconnected
+INFO  Server  - 07:48:04 <radko> has disconnected. msg sent!
 
-INFO  Server  - 01:53:33 HOHAHAHHAвлезе в чата
+INFO  Server  - 07:48:15 <riok>is trying to connect.
 
-INFO  Server  - 01:56:51 HOHAHAHHA влезе в чата
+INFO  Server  - 07:48:15 <riok> has connected.
 
-INFO  Server  - 01:56:58 HOHAHAHHA влезе в чата
+INFO  Server  - 07:48:15 Client added
 
-INFO  Server  - 01:57:11 HOHAHAHHA излезе от ччата
+INFO  Server  - 07:48:20 <sao>is trying to connect.
 
-INFO  Server  - 01:57:18 HOHAHAHHA излезе от ччата
+INFO  Server  - 07:48:20 <sao> has connected.
 
-INFO  Server  - 01:57:32 HOHAHAHHA влезе в чата
+INFO  Server  - 07:48:20 Client added
 
-INFO  Server  - 01:57:34 HOHAHAHHA влезе в чата
+INFO  Server  - 07:48:25 <sao> has disconnected. msg sent!
 
-INFO  Server  - 01:57:46 HOHAHAHHA излезе от ччата
+INFO  Server  - 07:48:26 <riok> has disconnected. msg sent!
 
-INFO  Server  - 01:57:47 HOHAHAHHA излезе от ччата
+INFO  Server  - 07:54:00 <kok>is trying to connect.
 
-INFO  Server  - 02:06:01 hose влезе в чата
+INFO  Server  - 07:54:00 <kok> has connected.
 
-INFO  Server  - 02:06:14 grisha влезе в чата
+INFO  Server  - 07:54:00 Client added
 
-INFO  Server  - 02:06:26 hose излезе от ччата
+INFO  Server  - 07:54:03 <oksok>is trying to connect.
 
-INFO  Server  - 02:06:30 grisha излезе от ччата
+INFO  Server  - 07:54:03 <oksok> has connected.
 
-INFO  Server  - 02:07:59 <radko> влезе в чата
+INFO  Server  - 07:54:03 Client added
 
-INFO  Server  - 02:21:04 <>се опитва да влезе в стаята
+INFO  Server  - 07:54:09 broadcasting to all [07:54:09] <oksok> Kak e pichg
 
-INFO  Server  - 02:21:04 <> влезе в чата
+INFO  Server  - 07:54:14 <kok> has disconnected. msg sent!
 
-INFO  Server  - 02:21:04 Added to the list of clients
+INFO  Server  - 07:54:15 <oksok> has disconnected. msg sent!
 
-INFO  Server  - 02:23:18 <>се опитва да влезе в стаята
+INFO  Server  - 07:54:28 [07:54:28] <saoko>is trying to connect.
 
-INFO  Server  - 02:23:18 <> влезе в чата
+INFO  Server  - 07:54:28 <saoko> has connected.
 
-INFO  Server  - 02:23:18 Клиентът е добаве.
+INFO  Server  - 07:54:28 Client added
 
-INFO  Server  - 02:23:26 <> излезе от чатаmsg sent!
+INFO  Server  - 07:54:31 [07:54:31] <oks>is trying to connect.
 
-INFO  Server  - 02:25:01 <hose>се опитва да влезе в стаята
+INFO  Server  - 07:54:31 <oks> has connected.
 
-INFO  Server  - 02:25:01 <hose> влезе в чата
+INFO  Server  - 07:54:31 Client added
 
-INFO  Server  - 02:25:01 Клиентът е добаве.
+INFO  Server  - 07:55:34 [07:55:34] <oks> has disconnected. msg sent!
 
-INFO  Server  - 02:25:08 <hose> излезе от чатаmsg sent!
+INFO  Server  - 07:57:14 <rad>is trying to connect.
 
-INFO  Server  - 02:28:24 <as>се опитва да влезе в стаята
+INFO  Server  - 07:57:14 [07:57:14] <rad> has connected.
 
-INFO  Server  - 02:28:24 <as> username validation failed
+INFO  Server  - 07:57:14 Client added
 
-INFO  Server  - 02:28:24 <as> излезе от чата msg sent!
+INFO  Server  - 07:57:21 <sa>is trying to connect.
 
-INFO  Server  - 02:28:29 <as>се опитва да влезе в стаята
+INFO  Server  - 07:57:21 [07:57:21] <sa> has connected.
 
-INFO  Server  - 02:28:29 <as> username validation failed
+INFO  Server  - 07:57:21 Client added
 
-INFO  Server  - 02:28:29 <as> излезе от чата msg sent!
+INFO  Server  - 07:57:30 [07:57:30] <sa> has disconnected. msg sent!
 
-INFO  Server  - 02:29:39 <z>се опитва да влезе в стаята
+INFO  Server  - 07:57:32 [07:57:32] <rad> has disconnected. msg sent!
 
-INFO  Server  - 02:29:39 <z> username validation failed
+INFO  Server  - 08:04:40 <radko>is trying to connect.
 
-INFO  Server  - 02:29:39 <z> излезе от чата msg sent!
+INFO  Server  - 08:04:40 [08:04:40] <radko> has connected.
 
-INFO  Server  - 02:34:34 <>се опитва да влезе в стаята
+INFO  Server  - 08:04:40 Client added
 
-INFO  Server  - 02:34:34 <> username validation failed
+INFO  Server  - 08:05:17 <canko>is trying to connect.
 
-INFO  Server  - 02:35:27 <as>се опитва да влезе в стаята
+INFO  Server  - 08:05:17 [08:05:17] <canko> has connected.
 
-INFO  Server  - 02:35:27 <as> влезе в чата
+INFO  Server  - 08:05:17 Client added
 
-INFO  Server  - 02:35:27 Клиентът е добавен.
+INFO  Server  - 08:05:50 [08:05:50] <canko> has disconnected. msg sent!
 
-INFO  Server  - 02:35:41 <koko>се опитва да влезе в стаята
+INFO  Server  - 08:07:00 <radko>is trying to connect.
 
-INFO  Server  - 02:35:41 <koko> влезе в чата
+INFO  Server  - 08:07:00 [08:07:00] <radko> has connected.
 
-INFO  Server  - 02:35:41 Клиентът е добавен.
+INFO  Server  - 08:07:00 Client added
 
-INFO  Server  - 02:35:58 <as> излезе от чата msg sent!
+INFO  Server  - 08:07:05 <asgas>is trying to connect.
 
-INFO  Server  - 02:36:11 <koko> излезе от чата msg sent!
+INFO  Server  - 08:07:05 [08:07:05] <asgas> has connected.
 
-INFO  Server  - 02:47:15 <grisha>се опитва да влезе в стаята
+INFO  Server  - 08:07:05 Client added
 
-INFO  Server  - 02:47:15 <grisha> влезе в чата
+INFO  Server  - 08:07:05 [08:07:05] <radko> has disconnected. msg sent!
 
-INFO  Server  - 02:47:15 Клиентът е добавен.
+INFO  Server  - 08:07:06 [08:07:06] <asgas> has disconnected. msg sent!
 
-INFO  Server  - 02:47:18 izprashtamkak e
+INFO  Server  - 08:07:35 <radko>is trying to connect.
 
-INFO  Server  - 02:47:23 izprashtamkak stava
+INFO  Server  - 08:07:35 [08:07:35] <radko> has connected.
 
-INFO  Server  - 02:47:32 <paco>се опитва да влезе в стаята
+INFO  Server  - 08:07:35 Client added
 
-INFO  Server  - 02:47:32 <paco> влезе в чата
+INFO  Server  - 08:07:41 <safas>is trying to connect.
 
-INFO  Server  - 02:47:32 Клиентът е добавен.
+INFO  Server  - 08:07:41 [08:07:41] <safas> has connected.
 
-INFO  Server  - 02:47:35 izprashtamkak stava
+INFO  Server  - 08:07:41 Client added
 
-INFO  Server  - 02:47:39 <grisha> излезе от чата msg sent!
+INFO  Server  - 08:07:41 [08:07:41] <radko> has disconnected. msg sent!
 
-INFO  Server  - 02:47:40 <paco> излезе от чата msg sent!
+INFO  Server  - 08:07:42 [08:07:42] <safas> has disconnected. msg sent!
 
-INFO  Server  - 02:55:03 <koco>is trying to connect.
+INFO  Server  - 08:08:28 <radko>is trying to connect.
 
-INFO  Server  - 02:55:03 <koco> has connected.
+INFO  Server  - 08:08:28 [08:08:28] <radko> has connected.
 
-INFO  Server  - 02:55:03 Client added
+INFO  Server  - 08:08:28 Client added
 
-INFO  Server  - 02:55:14 <mico>is trying to connect.
+INFO  Server  - 08:08:36 <sa>is trying to connect.
 
-INFO  Server  - 02:55:14 <mico> has connected.
+INFO  Server  - 08:08:36 [08:08:36] <sa> has connected.
 
-INFO  Server  - 02:55:14 Client added
+INFO  Server  - 08:08:36 Client added
 
-INFO  Server  - 02:55:20 izprashtam kak e koco
+INFO  Server  - 08:08:36 [08:08:36] <radko> has disconnected. msg sent!
 
-INFO  Server  - 02:55:34 izprashtam stava pich
+INFO  Server  - 08:08:36 [08:08:36] <sa> has disconnected. msg sent!
 
-INFO  Server  - 02:55:37 <koco> has disconnected. msg sent!
+INFO  Server  - 08:09:15 <radlkpo>is trying to connect.
 
-INFO  Server  - 02:55:38 <mico> has disconnected. msg sent!
+INFO  Server  - 08:09:15 [08:09:15] <radlkpo> has connected.
 
-INFO  Server  - 02:57:44 <>is trying to connect.
+INFO  Server  - 08:09:15 Client added
 
-INFO  Server  - 02:57:44 <> username validation failed
+INFO  Server  - 08:09:21 <ras>is trying to connect.
 
-INFO  Server  - 02:58:51 <>is trying to connect.
+INFO  Server  - 08:09:21 [08:09:21] <ras> has connected.
 
-INFO  Server  - 02:58:51 <> username validation failed
+INFO  Server  - 08:09:21 Client added
 
-INFO  Server  - 02:58:55 <hasahn>is trying to connect.
+INFO  Server  - 08:09:24 [08:09:24] <radlkpo> has disconnected. msg sent!
 
-INFO  Server  - 02:58:55 <hasahn> has connected.
+INFO  Server  - 08:09:26 [08:09:26] <ras> has disconnected. msg sent!
 
-INFO  Server  - 02:58:55 Client added
+INFO  Server  - 08:10:51 <radko>is trying to connect.
 
-INFO  Server  - 02:58:59 izprashtam kak e 
+INFO  Server  - 08:10:51 [08:10:51] <radko> has connected.
 
-INFO  Server  - 02:59:01 izprashtam  baca
+INFO  Server  - 08:10:51 Client added
 
-INFO  Server  - 02:59:08 izprashtam astaa
+INFO  Server  - 08:10:56 <as>is trying to connect.
 
-INFO  Server  - 02:59:09 izprashtam ashto
+INFO  Server  - 08:10:56 [08:10:56] <as> has connected.
 
-INFO  Server  - 02:59:12 <hasahn> has disconnected. msg sent!
+INFO  Server  - 08:10:56 Client added
 
-INFO  Server  - 03:18:27 <samo>is trying to connect.
+INFO  Server  - 08:10:56 [08:10:56] <radko> has disconnected. msg sent!
 
-INFO  Server  - 03:18:27 <samo> has connected.
+INFO  Server  - 08:10:56 [08:10:56] <as> has disconnected. msg sent!
 
-INFO  Server  - 03:18:27 Client added
+INFO  Server  - 08:11:33 <radko>is trying to connect.
 
-INFO  Server  - 03:18:30 broadcasting to all samo Kak e
+INFO  Server  - 08:11:33 [08:11:33] <radko> has connected.
 
-INFO  Server  - 03:18:45 <krilat>is trying to connect.
+INFO  Server  - 08:11:33 Client added
 
-INFO  Server  - 03:18:45 <krilat> has connected.
+INFO  Server  - 08:11:36 <radko>is trying to connect.
 
-INFO  Server  - 03:18:45 Client added
+INFO  Server  - 08:11:36 [08:11:36] <radko> has connected.
 
-INFO  Server  - 03:18:51 broadcasting to all krilat Ko pr samo
+INFO  Server  - 08:11:36 Client added
 
-INFO  Server  - 03:18:55 broadcasting to all samo Enishto men
+INFO  Server  - 08:11:41 <radko>is trying to connect.
 
-INFO  Server  - 03:19:04 broadcasting to all samo Nkak e carq
+INFO  Server  - 08:11:41 [08:11:41] <radko> has connected.
 
-INFO  Server  - 03:19:12 broadcasting to all krilat Odobre
+INFO  Server  - 08:11:41 Client added
 
-INFO  Server  - 03:19:16 <samo> has disconnected. msg sent!
+INFO  Server  - 08:11:44 [08:11:44] <radko> has disconnected. msg sent!
 
-INFO  Server  - 03:19:17 <krilat> has disconnected. msg sent!
+INFO  Server  - 08:11:53 [08:11:53] <radko> has disconnected. msg sent!
 
-INFO  Server  - 03:20:40 <kiko>is trying to connect.
+INFO  Server  - 08:12:21 <radko>is trying to connect.
 
-INFO  Server  - 03:20:40 <kiko> has connected.
+INFO  Server  - 08:12:21 [08:12:21] <radko> has connected.
 
-INFO  Server  - 03:20:40 Client added
+INFO  Server  - 08:12:21 Client added
 
-INFO  Server  - 03:20:45 <kiro>is trying to connect.
+INFO  Server  - 08:12:27 <radko>is trying to connect.
 
-INFO  Server  - 03:20:45 <kiro> has connected.
+INFO  Server  - 08:12:27 [08:12:27] <radko> has connected.
 
-INFO  Server  - 03:20:45 Client added
+INFO  Server  - 08:12:27 Client added
 
-INFO  Server  - 03:20:59 broadcasting to all <kiko> Kiro kak e men
+INFO  Server  - 08:13:50 [08:13:50] <radko> has disconnected. msg sent!
 
-INFO  Server  - 03:21:04 broadcasting to all <kiro> Stava brat
+INFO  Server  - 08:13:51 [08:13:51] <radko> has disconnected. msg sent!
 
-INFO  Server  - 03:21:12 broadcasting to all <kiko> Samo che neshto ne me kefi glavata
+INFO  Server  - 08:13:52 [08:13:52] <radko> has disconnected. msg sent!
 
-INFO  Server  - 03:21:18 broadcasting to all <kiro> Shto be drusan
+INFO  Server  - 08:30:07 <radko>is trying to connect.
 
-INFO  Server  - 03:21:23 broadcasting to all <kiko> Em ne znam
+INFO  Server  - 08:30:07 [08:30:07] <radko> has connected.
 
-INFO  Server  - 03:21:26 <kiko> has disconnected. msg sent!
+INFO  Server  - 08:30:07 Client added
 
-INFO  Server  - 03:21:27 <kiro> has disconnected. msg sent!
+INFO  Server  - 08:30:20 <simi>is trying to connect.
 
-INFO  Server  - 03:25:21 <kiro kak e>is trying to connect.
+INFO  Server  - 08:30:20 [08:30:20] <simi> has connected.
 
-INFO  Server  - 03:25:21 <kiro kak e> has connected.
+INFO  Server  - 08:30:20 Client added
 
-INFO  Server  - 03:25:21 Client added
+INFO  Server  - 08:30:32 broadcasting to all [08:30:32] <radko> Sup
 
-INFO  Server  - 03:25:27 broadcasting to all <kiro kak e> Dobre e
+INFO  Server  - 08:30:35 broadcasting to all [08:30:35] <simi> Rup
 
-INFO  Server  - 03:25:31 <kiro kak e> has disconnected. msg sent!
+INFO  Server  - 08:30:48 broadcasting to all [08:30:48] <simi> Lispo
 
-INFO  Server  - 03:29:13 <kirsto>is trying to connect.
+INFO  Server  - 08:30:52 broadcasting to all [08:30:52] <simi> Asf
 
-INFO  Server  - 03:29:13 <kirsto> has connected.
+INFO  Server  - 08:30:59 [08:30:59] <radko> has disconnected. msg sent!
 
-INFO  Server  - 03:29:13 Client added
+INFO  Server  - 08:30:59 [08:30:59] <simi> has disconnected. msg sent!
 
-INFO  Server  - 03:31:10 <ico>is trying to connect.
+INFO  Server  - 08:31:52 <radko>is trying to connect.
 
-INFO  Server  - 03:31:10 <ico> has connected.
+INFO  Server  - 08:31:52 [08:31:52] <radko> has connected.
 
-INFO  Server  - 03:31:10 Client added
+INFO  Server  - 08:31:52 Client added
 
-INFO  Server  - 03:31:13 broadcasting to all <ico> As
+INFO  Server  - 08:31:54 broadcasting to all [08:31:54] <radko> [08:31:54] <radko> As
 
-INFO  Server  - 03:31:21 <ico> has disconnected. msg sent!
+INFO  Server  - 08:32:02 <asfa>is trying to connect.
 
-INFO  Server  - 03:32:45 <ico>is trying to connect.
+INFO  Server  - 08:32:02 [08:32:02] <asfa> has connected.
 
-INFO  Server  - 03:32:45 <ico> has connected.
+INFO  Server  - 08:32:02 Client added
 
-INFO  Server  - 03:32:45 Client added
+INFO  Server  - 08:32:05 broadcasting to all [08:32:05] <asfa> [08:32:05] <asfa> Saf
 
-INFO  Server  - 03:32:48 broadcasting to all <ico> Kak e
+INFO  Server  - 08:32:57 [08:32:57] <asfa> has disconnected. msg sent!
 
-INFO  Server  - 03:32:53 <ico> has disconnected. msg sent!
+INFO  Server  - 08:32:59 [08:32:59] <radko> has disconnected. msg sent!
 
-INFO  Server  - 03:33:46 <ico>is trying to connect.
+INFO  Server  - 08:35:29 <radko>is trying to connect.
 
-INFO  Server  - 03:33:46 <ico> has connected.
+INFO  Server  - 08:35:29 [08:35:29] <radko> has connected.
 
-INFO  Server  - 03:33:46 Client added
+INFO  Server  - 08:35:29 Client added
 
-INFO  Server  - 03:33:57 <ico> has disconnected. msg sent!
+INFO  Server  - 08:35:35 broadcasting to all [08:35:35] <radko> Sa
 
-INFO  Server  - 03:34:42 <ico>is trying to connect.
+INFO  Server  - 08:35:43 <asf>is trying to connect.
 
-INFO  Server  - 03:34:42 <ico> has connected.
+INFO  Server  - 08:35:43 [08:35:43] <asf> has connected.
 
-INFO  Server  - 03:34:42 Client added
+INFO  Server  - 08:35:43 Client added
 
-INFO  Server  - 03:34:55 <ico> has disconnected. msg sent!
+INFO  Server  - 08:35:57 broadcasting to all [08:35:57] <radko> Asf
 
-INFO  Server  - 03:35:18 <raco>is trying to connect.
+INFO  Server  - 08:35:59 broadcasting to all [08:35:59] <asf> Asf
 
-INFO  Server  - 03:35:18 <raco> has connected.
+INFO  Server  - 08:36:02 broadcasting to all [08:36:02] <asf> Asf
 
-INFO  Server  - 03:35:18 Client added
+INFO  Server  - 08:37:11 [08:37:11] <radko> has disconnected. msg sent!
 
-INFO  Server  - 03:35:31 <raco> has disconnected. msg sent!
+INFO  Server  - 08:37:14 [08:37:14] <asf> has disconnected. msg sent!
 
-INFO  Server  - 03:35:57 <raco>is trying to connect.
+INFO  Server  - 09:02:32 <radko>is trying to connect.
 
-INFO  Server  - 03:35:57 <raco> has connected.
+INFO  Server  - 09:02:32 [09:02:32] <radko> has connected.
 
-INFO  Server  - 03:35:57 Client added
+INFO  Server  - 09:02:32 Client added
 
-INFO  Server  - 03:35:59 <raco> has disconnected. msg sent!
+INFO  Server  - 09:02:40 <sani>is trying to connect.
 
-INFO  Server  - 03:46:04 <rico>is trying to connect.
+INFO  Server  - 09:02:40 [09:02:40] <sani> has connected.
 
-INFO  Server  - 03:46:04 <rico> has connected.
+INFO  Server  - 09:02:40 Client added
 
-INFO  Server  - 03:46:04 Client added
+INFO  Server  - 09:02:45 [09:02:45] <sani> has disconnected. msg sent!
 
-INFO  Server  - 03:46:06 <rico> has disconnected. msg sent!
+INFO  Server  - 09:02:47 [09:02:47] <radko> has disconnected. msg sent!
+
+INFO  Server  - 09:04:25 <radko>is trying to connect.
+
+INFO  Server  - 09:04:25 [09:04:25] <radko> has connected.
+
+INFO  Server  - 09:04:25 Client added
+
+INFO  Server  - 09:04:28 [09:04:28] <radko> has disconnected. msg sent!
+
+INFO  Server  - 09:04:41 <sanko>is trying to connect.
+
+INFO  Server  - 09:04:41 [09:04:41] <sanko> has connected.
+
+INFO  Server  - 09:04:41 Client added
+
+INFO  Server  - 09:04:44 [09:04:44] <sanko> has disconnected. msg sent!
+
+INFO  Server  - 09:06:16 <radko>is trying to connect.
+
+INFO  Server  - 09:06:16 [09:06:16] <radko> has connected.
+
+INFO  Server  - 09:06:16 Client added
+
+INFO  Server  - 09:06:22 <sanko>is trying to connect.
+
+INFO  Server  - 09:06:22 [09:06:22] <sanko> has connected.
+
+INFO  Server  - 09:06:22 Client added
+
+INFO  Server  - 09:06:34 <grisha>is trying to connect.
+
+INFO  Server  - 09:06:34 [09:06:34] <grisha> has connected.
+
+INFO  Server  - 09:06:34 Client added
+
+INFO  Server  - 09:07:34 [09:07:34] <radko> has disconnected. msg sent!
+
+INFO  Server  - 09:07:56 [09:07:56] <grisha> has disconnected. msg sent!
+
+INFO  Server  - 09:07:59 [09:07:59] <sanko> has disconnected. msg sent!
+
+INFO  Server  - 09:11:12 <radko>is trying to connect.
+
+INFO  Server  - 09:11:12 [09:11:12] <radko> has connected.
+
+INFO  Server  - 09:11:12 Client added
+
+INFO  Server  - 09:11:16 <sanko>is trying to connect.
+
+INFO  Server  - 09:11:16 [09:11:16] <sanko> has connected.
+
+INFO  Server  - 09:11:16 Client added
+
+INFO  Server  - 09:11:21 [09:11:21] <radko> has disconnected. msg sent!
+
+INFO  Server  - 09:11:24 [09:11:24] <sanko> has disconnected. msg sent!
+
+INFO  Server  - 09:12:08 <radko>is trying to connect.
+
+INFO  Server  - 09:12:08 [09:12:08] <radko> has connected.
+
+INFO  Server  - 09:12:08 Client added
+
+INFO  Server  - 09:12:15 [09:12:15] <radko> has disconnected. msg sent!
+
+INFO  Server  - 09:12:27 <saro>is trying to connect.
+
+INFO  Server  - 09:12:27 [09:12:27] <saro> has connected.
+
+INFO  Server  - 09:12:27 Client added
+
+INFO  Server  - 09:12:30 <varo>is trying to connect.
+
+INFO  Server  - 09:12:30 [09:12:30] <varo> has connected.
+
+INFO  Server  - 09:12:30 Client added
+
+INFO  Server  - 09:12:44 [09:12:44] <saro> has disconnected. msg sent!
+
+INFO  Server  - 09:12:47 [09:12:47] <varo> has disconnected. msg sent!
+
+INFO  Server  - 09:14:17 <sarko>is trying to connect.
+
+INFO  Server  - 09:14:17 [09:14:17] <sarko> has connected.
+
+INFO  Server  - 09:14:17 Client added
+
+INFO  Server  - 09:14:21 <marko>is trying to connect.
+
+INFO  Server  - 09:14:21 [09:14:21] <marko> has connected.
+
+INFO  Server  - 09:14:21 Client added
+
+INFO  Server  - 09:14:38 [09:14:38] <marko> has disconnected. msg sent!
+
+INFO  Server  - 09:14:52 [09:14:52] <sarko> has disconnected. msg sent!
+
+INFO  Server  - 09:16:12 <asf>is trying to connect.
+
+INFO  Server  - 09:16:12 [09:16:12] <asf> has connected.
+
+INFO  Server  - 09:16:12 Client added
+
+INFO  Server  - 09:16:17 <asfg>is trying to connect.
+
+INFO  Server  - 09:16:17 [09:16:17] <asfg> has connected.
+
+INFO  Server  - 09:16:17 Client added
+
+INFO  Server  - 09:16:20 [09:16:20] <asfg> has disconnected. msg sent!
+
+INFO  Server  - 09:16:26 [09:16:26] <asf> has disconnected. msg sent!
+
+INFO  Server  - 09:17:41 <radko>is trying to connect.
+
+INFO  Server  - 09:17:41 [09:17:41] <radko> has connected.
+
+INFO  Server  - 09:17:41 Client added
+
+INFO  Server  - 09:17:45 [09:17:45] <radko> has disconnected. msg sent!
+
+INFO  Server  - 09:17:51 <rosko>is trying to connect.
+
+INFO  Server  - 09:17:51 [09:17:51] <rosko> has connected.
+
+INFO  Server  - 09:17:51 Client added
+
+INFO  Server  - 09:17:54 <gligan>is trying to connect.
+
+INFO  Server  - 09:17:54 [09:17:54] <gligan> has connected.
+
+INFO  Server  - 09:17:54 Client added
+
+INFO  Server  - 09:18:03 broadcasting to all [09:18:03] <gligan> Kak e
+
+INFO  Server  - 09:18:10 broadcasting to all [09:18:10] <rosko> Dobre
+
+INFO  Server  - 09:18:13 [09:18:13] <gligan> has disconnected. msg sent!
+
+INFO  Server  - 09:18:17 [09:18:17] <rosko> has disconnected. msg sent!
 

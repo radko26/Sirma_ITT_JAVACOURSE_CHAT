@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -52,7 +53,7 @@ public class ChatPanel extends Panel implements KeyListener {
 		onlineUsersFieldScroll.setPreferredSize(new Dimension(80, 300));
 		onlineUsersField.setEditable(false);
 		closeSessionButton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				running.set(false);
@@ -64,10 +65,26 @@ public class ChatPanel extends Panel implements KeyListener {
 		add(closeSessionButton);
 	}
 
+	/**
+	 * Adds message to the {@link JTextArea}.
+	 * 
+	 * @param msg
+	 *            The message.
+	 */
 	public void log(String msg) {
-		oldMsgField.append(msg + "\n");
+		msg = msg + "\n";
+		oldMsgField.append(msg);
 	}
 
+	/**
+	 * Getter for the field where online users are logged.
+	 * @return
+	 * The {@link JTextArea};
+	 */
+	public JTextArea getOnlineUsersField(){
+		return onlineUsersField;
+	}
+	
 	@Override
 	public void updateGUI() {
 		closeSessionButton.setText(ContentLanguageManager
@@ -94,7 +111,6 @@ public class ChatPanel extends Panel implements KeyListener {
 		} else {
 			msg.append(e.getKeyChar());
 		}
-
 	}
 
 	@Override

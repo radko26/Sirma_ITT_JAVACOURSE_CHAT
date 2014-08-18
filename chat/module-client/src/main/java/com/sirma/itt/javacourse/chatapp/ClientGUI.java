@@ -1,7 +1,5 @@
 package com.sirma.itt.javacourse.chatapp;
 
-import java.awt.GraphicsEnvironment;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -45,7 +43,7 @@ public class ClientGUI extends JFrame implements MouseListener {
 		});
 		languagePopUpMenu.add(languageOption);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		setVisible(true);
 	}
 

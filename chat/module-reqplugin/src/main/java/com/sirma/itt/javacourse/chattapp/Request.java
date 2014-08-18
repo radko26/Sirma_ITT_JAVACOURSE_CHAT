@@ -1,6 +1,7 @@
 package com.sirma.itt.javacourse.chattapp;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 /**
  * Wrapper class that initialises object used for communication between the
@@ -14,12 +15,11 @@ public class Request implements Serializable {
 	public static final int LOGIN_AUTH = 1;
 	public static final int MESSAGE = 2;
 	public static final int CONNECTION = 3;
-	
 
 	private int type;
 	private boolean isSuccesful;
-
 	private String content;
+	private Collection<?> collection;
 
 	/**
 	 * Sets the type of the request.
@@ -56,6 +56,18 @@ public class Request implements Serializable {
 	}
 
 	/**
+	 * Initialises the collection with the param.
+	 * 
+	 * @param collection
+	 *            The collection.
+	 * @return Same instace of this class.
+	 */
+	public Request addCollection(Collection<?> collection) {
+		this.collection = collection;
+		return this;
+	}
+
+	/**
 	 * Getter for this type.
 	 * 
 	 * @return The type of the request.
@@ -71,6 +83,15 @@ public class Request implements Serializable {
 	 */
 	public String getContent() {
 		return content;
+	}
+
+	/**
+	 * Getter for the collection field.
+	 * 
+	 * @return The collection.
+	 */
+	public Collection<?> getCollection() {
+		return collection;
 	}
 
 	/**

@@ -8,11 +8,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import javax.swing.SwingWorker;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * 
  * @author Radoslav
@@ -24,7 +19,7 @@ public class Server extends Thread {
 	private AtomicBoolean running = new AtomicBoolean(true);
 	private List<ClientHandleThread> connected = Collections
 			.synchronizedList(new ArrayList<ClientHandleThread>());
-
+	
 	/**
 	 * Initialises {@link ServerSocket}.
 	 * 
@@ -43,7 +38,26 @@ public class Server extends Thread {
 	 */
 	public void stopServer() throws IOException {
 		running.set(false);
-			server.close();
+		server.close();
+	}
+
+	/**
+	 * Getter for the running status variable.
+	 * 
+	 * @return The variable.
+	 * 
+	 */
+	public AtomicBoolean getRunning() {
+		return running;
+	}
+
+	/**
+	 * Getter for the list of connected users.
+	 * 
+	 * @return The list.
+	 */
+	public synchronized List<ClientHandleThread> getConnected() {
+		return connected;
 	}
 
 	@Override

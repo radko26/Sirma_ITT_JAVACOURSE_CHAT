@@ -1,23 +1,31 @@
 package com.sirma.itt.javacourse.chatapp;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
 import com.sirma.itt.javacourse.chattapp.Request;
 
 /**
- * 
+ * Class that connects to the server on the given HOST/PORT.It starts two
+ * threads for listening and writing to the server.If GUI is presented it writes
+ * data to it.
  * 
  * @author Radoslav
  */
@@ -25,11 +33,13 @@ public class Client extends SwingWorker<Void, Void> {
 
 	private static final int PORT = 7001;
 	private static final String HOST = "localhost";
+	private static BlockingQueue<Request> toServer = new LinkedBlockingQueue<>();
+	private BlockingQueue<Request> fromServer = new LinkedBlockingQueue<>();
+	private Set<String> onlineUsers;
+	private static final Pattern PATTERN = Pattern.compile("<([^<|>]+?)>");
 	private Socket server;
 	private AtomicBoolean running;
 	private JFrame frame;
-	private BlockingQueue<Request> fromServer = new LinkedBlockingQueue<>();
-	private static BlockingQueue<Request> toServer = new LinkedBlockingQueue<>();
 
 	/**
 	 * Initialises the client login without using GUI.
@@ -83,7 +93,6 @@ public class Client extends SwingWorker<Void, Void> {
 		}
 
 		ChatPanel chatPanel = null;
-		System.out.println(running.hashCode());
 		while (running.get()) {
 			if (!fromServer.isEmpty()) {
 				Request request = fromServer.poll();
@@ -101,24 +110,78 @@ public class Client extends SwingWorker<Void, Void> {
 						frame.pack();
 
 						chatPanel.log(request.getContent());
+						onlineUsers = new HashSet(request.getCollection());
 						LogHandler.log(request.getContent());
+						try {
+							updateOnlineUsersGUI(chatPanel);
+						} catch (InvocationTargetException
+								| InterruptedException e) {
+							e.printStackTrace();
+						}
 					} catch (NullPointerException e) {// without GUI.
 						LogHandler.log(request.getContent());
 					}
 				} else if (request.getType() == Request.MESSAGE) {
 					try {
-						LogHandler.log(request.getContent());
 						chatPanel.log(request.getContent());
 					} catch (NullPointerException e) {
 						LogHandler.log(request.getContent());
 					}
-				} else {
-					// ONLINE USERS REQUEST
+				} else {// Request for disconnected or connected user.
+					System.out.println(request.getContent());
+
+					Matcher matcher = PATTERN.matcher(request.getContent());
+					matcher.find();
+					String username = matcher.group(1);
+					if (onlineUsers.contains(username)) {
+						onlineUsers.remove(username);
+						if (frame != null) {
+							try {
+								updateOnlineUsersGUI(chatPanel);
+							} catch (InvocationTargetException
+									| InterruptedException e) {
+								e.printStackTrace();
+							}
+						}
+					} else {
+						onlineUsers.add(username);
+						try {
+							updateOnlineUsersGUI(chatPanel);
+						} catch (InvocationTargetException
+								| InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					chatPanel.log(request.getContent());
 				}
 			}
 		}
 
 		return null;
+	}
+
+	/**
+	 * Loops through the connected users and draw them to the GUI field.
+	 * 
+	 * @throws InterruptedException
+	 *             If the process has been interrupted.
+	 * @throws InvocationTargetException
+	 */
+	private void updateOnlineUsersGUI(final ChatPanel panel)
+			throws InvocationTargetException, InterruptedException {
+		final StringBuilder list = new StringBuilder();
+		for (String user : onlineUsers) {
+			list.append(user).append("\n");
+		}
+		SwingUtilities.invokeLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				panel.getOnlineUsersField().setText(list.toString());
+			}
+		});
+		System.out.println(list.toString());
+
 	}
 
 	@Override
@@ -131,7 +194,8 @@ public class Client extends SwingWorker<Void, Void> {
 		if (frame != null) {
 
 			JOptionPane errorPane = new JOptionPane("Client disconnected.");
-			JDialog errorPaneDialog = errorPane.createDialog(frame,"Disconnected");
+			JDialog errorPaneDialog = errorPane.createDialog(frame,
+					"Disconnected");
 			errorPaneDialog.setVisible(true);
 		}
 
@@ -140,8 +204,9 @@ public class Client extends SwingWorker<Void, Void> {
 	}
 
 	/**
+	 * Creates request
 	 * 
-	 * @param request
+	 * @param content
 	 */
 	public static void addMessageRequest(String content) {
 		toServer.add(new Request().setType(Request.MESSAGE).setContent(content));
