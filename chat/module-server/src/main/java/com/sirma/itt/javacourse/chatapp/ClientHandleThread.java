@@ -200,8 +200,8 @@ public class ClientHandleThread extends Thread {
 	 *            The username,
 	 * @return True if it is and flase if it is not.
 	 */
-	private boolean isUnique(String username) {
-		return true;
+	private synchronized boolean isUnique(String username) {
+		return !onlineUsers.contains(username);
 	}
 
 	/**

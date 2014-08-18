@@ -98,6 +98,7 @@ public class LoginPanel extends Panel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
+			running.set(true);
 			new Client(running, applicationFrameWindow).execute();
 			usernameField.setEditable(false);
 		} catch (IOException e1) {

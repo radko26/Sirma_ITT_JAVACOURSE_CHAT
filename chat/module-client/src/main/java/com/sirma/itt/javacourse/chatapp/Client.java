@@ -191,16 +191,6 @@ public class Client extends SwingWorker<Void, Void> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		if (frame != null) {
-
-			JOptionPane errorPane = new JOptionPane("Client disconnected.");
-			JDialog errorPaneDialog = errorPane.createDialog(frame,
-					"Disconnected");
-			errorPaneDialog.setVisible(true);
-		}
-
-		LogHandler.log("disconnecting");
-		System.exit(0);
 	}
 
 	/**
