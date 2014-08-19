@@ -15,7 +15,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
@@ -27,15 +29,18 @@ import javax.swing.SwingWorker;
  * @author Radoslav
  */
 public class Client extends SwingWorker<Void, Void> {
-
+	private static final Pattern PATTERN = Pattern.compile("<([^<|>]+?)>");
 	private static int PORT;
 	private static String HOST;
 	private static BlockingQueue<Request> toServer = new LinkedBlockingQueue<>();
 	private BlockingQueue<Request> fromServer = new LinkedBlockingQueue<>();
 	private Set<String> onlineUsers;
-	private static final Pattern PATTERN = Pattern.compile("<([^<|>]+?)>");
+	private ClientReader clientReader;
+	private ClientWriter clientWriter;
 	private Socket server;
 	private AtomicBoolean running;
+	private AtomicBoolean isServerRunning = new AtomicBoolean(true);
+	private boolean errorInUsername = false;
 	private JFrame frame;
 
 	/**
@@ -96,8 +101,11 @@ public class Client extends SwingWorker<Void, Void> {
 
 	@Override
 	protected Void doInBackground() {
-		new ClientReader(running, server, fromServer).start();
-		new ClientWriter(running, server, toServer).start();
+		clientReader = new ClientReader(running, isServerRunning, server,
+				fromServer);
+		clientWriter = new ClientWriter(running, server, toServer);
+		clientReader.start();
+		clientWriter.start();
 		if (frame != null) {
 			LoginPanel loginPanel = (LoginPanel) frame.getContentPane();
 			toServer.add(new Request().setContent(
@@ -116,6 +124,7 @@ public class Client extends SwingWorker<Void, Void> {
 						&& !request.isSuccessful()) {
 					running.set(false);
 					LoginPanel loginPanel = (LoginPanel) frame.getContentPane();
+					errorInUsername = true;
 					loginPanel.setErrorMsg();
 				} else if (request.getType() == Request.LOGIN_AUTH) {
 					try {// to change to GUI panel.
@@ -201,6 +210,21 @@ public class Client extends SwingWorker<Void, Void> {
 
 	@Override
 	protected void done() {
+		if (isServerRunning.get() == false && !errorInUsername) {
+			if (frame != null) {
+				SwingUtilities.invokeLater(new Runnable() {
+					@Override
+					public void run() {
+						JOptionPane errorPane = new JOptionPane(
+								"Server has stopped working.");
+						JDialog errorPaneDialog = errorPane
+								.createDialog("Critical error.");
+						errorPaneDialog.setVisible(true);
+					}
+				});
+			}
+			LogHandler.log("Server stopped");
+		}
 		try {
 			server.close();
 		} catch (IOException e) {

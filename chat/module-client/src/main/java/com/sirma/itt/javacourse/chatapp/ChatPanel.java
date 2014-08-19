@@ -113,7 +113,7 @@ public class ChatPanel extends Panel implements KeyListener {
 			if (msg.length() > 0) {
 				msg.deleteCharAt(msg.length() - 1);
 			}
-		} else {
+		} else if(e.getKeyCode()!= KeyEvent.VK_SHIFT && e.getKeyCode()!=KeyEvent.VK_CONTROL && e.getKeyCode()!=KeyEvent.VK_ALT){
 			msg.append(e.getKeyChar());
 		}
 	}

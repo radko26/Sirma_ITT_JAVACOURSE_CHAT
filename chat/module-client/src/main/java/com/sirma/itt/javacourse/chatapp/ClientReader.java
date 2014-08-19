@@ -18,6 +18,7 @@ public class ClientReader extends Thread {
 	private AtomicBoolean running;
 	private Socket server;
 	private BlockingQueue<Request> fromServer;
+	private AtomicBoolean isServerRunning;
 
 	/**
 	 * Initialises fields.
@@ -29,9 +30,10 @@ public class ClientReader extends Thread {
 	 * @param fromServer
 	 *            Queue that holds requests from server.
 	 */
-	public ClientReader(AtomicBoolean running, Socket server,
-			BlockingQueue<Request> fromServer) {
+	public ClientReader(AtomicBoolean running, AtomicBoolean isServerRunning,
+			Socket server, BlockingQueue<Request> fromServer) {
 		this.running = running;
+		this.isServerRunning = isServerRunning;
 		this.server = server;
 		this.fromServer = fromServer;
 	}
@@ -48,6 +50,8 @@ public class ClientReader extends Thread {
 			}
 		} catch (IOException | ClassNotFoundException e) {
 			LogHandler.log("Server is closed");
+			isServerRunning.set(false);
+			running.set(false);
 		}
 		if (reader != null) {
 			reader.closeStream();
