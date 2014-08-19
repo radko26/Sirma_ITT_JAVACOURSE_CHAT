@@ -31,7 +31,7 @@ public class LogHandler {
 	 *            The message.
 	 */
 	public static void log(String msg) {
-		LOG.info(msg);
+		handler.LOG.info(msg);
 	}
 
 }

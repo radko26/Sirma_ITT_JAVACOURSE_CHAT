@@ -36,7 +36,7 @@ public abstract class Panel extends JPanel {
 	/**
 	 * Updates the components' title to the chosen language.
 	 */
-	abstract void updateGUI();
+	public abstract void updateGUI();
 
 	/**
 	 * Getter for the panel.

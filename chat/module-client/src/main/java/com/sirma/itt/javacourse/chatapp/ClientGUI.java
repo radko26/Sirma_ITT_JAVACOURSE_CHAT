@@ -31,7 +31,6 @@ public class ClientGUI extends JFrame implements MouseListener {
 		pack();
 		addMouseListener(this);
 		languageOption.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ContentLanguageManager.setLanguage(ContentLanguageManager

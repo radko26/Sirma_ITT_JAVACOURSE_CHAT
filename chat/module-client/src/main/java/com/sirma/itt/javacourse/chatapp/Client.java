@@ -1,6 +1,5 @@
 package com.sirma.itt.javacourse.chatapp;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.Socket;
@@ -16,13 +15,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
-
-import com.sirma.itt.javacourse.chatapp.Request;
 
 /**
  * Class that connects to the server on the given HOST/PORT.It starts two
@@ -201,7 +196,6 @@ public class Client extends SwingWorker<Void, Void> {
 				panel.getOnlineUsersField().setText(list.toString());
 			}
 		});
-		System.out.println(list.toString());
 
 	}
 
