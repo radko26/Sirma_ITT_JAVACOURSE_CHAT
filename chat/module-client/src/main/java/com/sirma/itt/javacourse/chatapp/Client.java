@@ -117,7 +117,7 @@ public class Client extends SwingWorker<Void, Void> {
 		}
 
 		ChatPanel chatPanel = null;
-		while (running.get()) {
+		while (running.get() && isServerRunning.get()) {
 			if (!fromServer.isEmpty()) {
 				Request request = fromServer.poll();
 				if (request.getType() == Request.LOGIN_AUTH
@@ -144,40 +144,51 @@ public class Client extends SwingWorker<Void, Void> {
 							e.printStackTrace();
 						}
 					} catch (NullPointerException e) {// without GUI.
+						onlineUsers = new HashSet(request.getCollection());
 						LogHandler.log(request.getContent());
 					}
 				} else if (request.getType() == Request.MESSAGE) {
 					try {
 						chatPanel.log(request.getContent());
+						LogHandler.log(request.getContent());
 					} catch (NullPointerException e) {
 						LogHandler.log(request.getContent());
 					}
 				} else {// Request for disconnected or connected user.
-					System.out.println(request.getContent());
-
 					Matcher matcher = PATTERN.matcher(request.getContent());
 					matcher.find();
 					String username = matcher.group(1);
 					if (onlineUsers.contains(username)) {
 						onlineUsers.remove(username);
 						if (frame != null) {
+							chatPanel.log(request.getContent());
 							try {
 								updateOnlineUsersGUI(chatPanel);
 							} catch (InvocationTargetException
 									| InterruptedException e) {
 								e.printStackTrace();
 							}
+						} else {// no gui specified log it to the file and
+								// console.
+							LogHandler.log(username
+									+ " removed from the list of online users");
 						}
 					} else {
 						onlineUsers.add(username);
-						try {
-							updateOnlineUsersGUI(chatPanel);
-						} catch (InvocationTargetException
-								| InterruptedException e) {
-							e.printStackTrace();
+						if (frame != null) {// if there is no frame null pointer
+							// will be thrown.
+							chatPanel.log(request.getContent());
+							try {
+								updateOnlineUsersGUI(chatPanel);
+							} catch (InvocationTargetException
+									| InterruptedException e) {
+								e.printStackTrace();
+							}
+						} else {
+							LogHandler.log(username
+									+ " added to the list of users");
 						}
 					}
-					chatPanel.log(request.getContent());
 				}
 			}
 		}
@@ -223,7 +234,7 @@ public class Client extends SwingWorker<Void, Void> {
 					}
 				});
 			}
-			LogHandler.log("Server stopped");
+			LogHandler.log("Server stopped here");
 		}
 		try {
 			server.close();
@@ -257,8 +268,7 @@ public class Client extends SwingWorker<Void, Void> {
 	 */
 	public static void main(String[] args) throws UnknownHostException,
 			IOException {
-		Executor exe = new ScheduledThreadPoolExecutor(5);
-		exe.execute(new Client(new AtomicBoolean(true)));
+		new Thread(new Client(new AtomicBoolean(true))).start();
 	}
 
 }

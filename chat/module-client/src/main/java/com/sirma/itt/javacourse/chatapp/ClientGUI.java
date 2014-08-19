@@ -42,7 +42,7 @@ public class ClientGUI extends JFrame implements MouseListener {
 		});
 		languagePopUpMenu.add(languageOption);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		setResizable(false);
 		setVisible(true);
 	}
 

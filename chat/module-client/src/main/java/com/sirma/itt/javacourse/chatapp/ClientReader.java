@@ -51,7 +51,6 @@ public class ClientReader extends Thread {
 		} catch (IOException | ClassNotFoundException e) {
 			LogHandler.log("Server is closed");
 			isServerRunning.set(false);
-			running.set(false);
 		}
 		if (reader != null) {
 			reader.closeStream();

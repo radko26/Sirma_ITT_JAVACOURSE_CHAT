@@ -61,12 +61,11 @@ public class ClientHandleThread extends Thread {
 					.append("is trying to connect.").toString());
 			if (checkUsernameAuth(userAuth)) {
 
-				String msg = new StringBuilder().append("[")
-						.append(TIME_FORMAT.format(new Date())).append("] ")
-						.append("<").append(userAuth.getContent()).append("> ")
+				String msg = new StringBuilder().append("<")
+						.append(userAuth.getContent()).append("> ")
 						.append("has connected.").toString();
 				broadcastToOthers(new Request().setType(Request.CONNECTION)
-						.setContent(msg));
+						.setContent(getTime() + msg));
 				LogHandler.log(msg);// connected msg
 
 				LogHandler.log("Client added");// added to the list of clients.
@@ -105,9 +104,7 @@ public class ClientHandleThread extends Thread {
 				if (userAuth != null && !client.isClosed()) {
 					Request disconnect = new Request().setType(
 							Request.CONNECTION).setContent(
-							new StringBuilder().append("[")
-									.append(TIME_FORMAT.format(new Date()))
-									.append("] ").append("<")
+							new StringBuilder().append("<")
 									.append(userAuth.getContent()).append("> ")
 									.append("has disconnected.").toString());
 					synchronized (connected) {
@@ -122,13 +119,16 @@ public class ClientHandleThread extends Thread {
 						LogHandler
 								.log("error closing disconnected client socket");
 					}
+					LogHandler.log(disconnect.getContent() + " msg sent!");
 					try {
+						disconnect.setContent(getTime()
+								+ disconnect.getContent());
 						broadcastToOthers(disconnect);
 					} catch (IOException e1) {
 						LogHandler
 								.log("error in sending it to the other connected");
 					}
-					LogHandler.log(disconnect.getContent() + " msg sent!");
+
 				}
 
 			} else {
@@ -146,6 +146,16 @@ public class ClientHandleThread extends Thread {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Gets the current time.
+	 * 
+	 * @return String representing the time.
+	 */
+	private String getTime() {
+		return new StringBuilder().append("[")
+				.append(TIME_FORMAT.format(new Date())).append("] ").toString();
 	}
 
 	/**
@@ -179,7 +189,7 @@ public class ClientHandleThread extends Thread {
 	 * @return True if it is correct, otherwise false.
 	 */
 	private boolean checkUsernameAuth(Request loginAuth) {
-		String username = loginAuth.getContent();
+		String username = loginAuth.getContent().toLowerCase();
 		int type = loginAuth.getType();
 		if (type != Request.LOGIN_AUTH) {
 			return false;

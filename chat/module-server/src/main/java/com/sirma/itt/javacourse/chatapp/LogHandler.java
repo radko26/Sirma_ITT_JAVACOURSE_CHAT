@@ -20,6 +20,18 @@ public class LogHandler {
 	private static final DateFormat TIME_FORMAT = new SimpleDateFormat(
 			"hh:mm:ss");
 	private static JTextArea guiLoggingField;
+	private static LogHandler handler;
+
+	static {
+		handler = new LogHandler();
+	}
+
+	/**
+	 * Initialises the logger.
+	 */
+	private LogHandler() {
+		setUpLogging();
+	}
 
 	/**
 	 * Passes this message to the {@link Logger} instance.
@@ -28,32 +40,38 @@ public class LogHandler {
 	 *            The message.
 	 */
 	public static void log(String msg) {
-		final String log = new StringBuilder(TIME_FORMAT.format(new Date()))
-				.append(" ").append(msg).append("\n").toString();
-		LogHandler.LOG.info(log);
-		SwingUtilities.invokeLater(new Runnable() {
+		final String log = new StringBuilder().append("[ ")
+				.append(TIME_FORMAT.format(new Date())).append("] ")
+				.append(msg).append("\n").toString();
 
-			@Override
-			public void run() {
-				guiLoggingField.append(log);
-			}
-		});
+		if (guiLoggingField != null) {
+			SwingUtilities.invokeLater(new Runnable() {
+
+				@Override
+				public void run() {
+					guiLoggingField.append(log);
+				}
+			});
+		} else {
+			handler.LOG.info(log);
+		}
 	}
 
 	/**
 	 * Loads the {@link Logger} property file and initialises the GUI logField
+	 * 
 	 * @param field
-	 * The field.
+	 *            The field.
 	 */
 	public static void setUpLogging(JTextArea field) {
 		setUpLogging();
 		guiLoggingField = field;
 	}
-	
+
 	/**
 	 * Loads the {@link Logger} property file.
 	 */
-	public static void setUpLogging(){
+	private static void setUpLogging() {
 		PropertyConfigurator.configure(LogHandler.class
 				.getResourceAsStream("log4j.properties"));
 	}
