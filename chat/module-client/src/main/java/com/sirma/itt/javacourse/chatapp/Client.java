@@ -207,13 +207,8 @@ public class Client extends SwingWorker<Void, Void> {
 		for (String user : onlineUsers) {
 			list.append(user).append("\n");
 		}
-		SwingUtilities.invokeLater(new Runnable() {
 
-			@Override
-			public void run() {
-				panel.getOnlineUsersField().setText(list.toString());
-			}
-		});
+		panel.getOnlineUsersField().setText(list.toString());
 
 	}
 
@@ -221,16 +216,12 @@ public class Client extends SwingWorker<Void, Void> {
 	protected void done() {
 		if (isServerRunning.get() == false && !errorInUsername) {
 			if (frame != null) {
-				SwingUtilities.invokeLater(new Runnable() {
-					@Override
-					public void run() {
-						JOptionPane errorPane = new JOptionPane(
-								"Server has stopped working.");
-						JDialog errorPaneDialog = errorPane
-								.createDialog("Critical error.");
-						errorPaneDialog.setVisible(true);
-					}
-				});
+
+				JOptionPane errorPane = new JOptionPane(
+						"Server has stopped working.");
+				JDialog errorPaneDialog = errorPane
+						.createDialog("Critical error.");
+				errorPaneDialog.setVisible(true);
 			}
 			LogHandler.log("Server stopped here");
 		}

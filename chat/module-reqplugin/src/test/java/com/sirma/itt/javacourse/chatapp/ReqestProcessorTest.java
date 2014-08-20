@@ -6,13 +6,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import javax.sound.midi.Receiver;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
-
-import com.sirma.itt.javacourse.chatapp.Request;
-import com.sirma.itt.javacourse.chatapp.RequestProcessor;
 
 /**
  * Tests whether {@link Request} and {@link RequestProcessor} communicate
@@ -30,17 +27,21 @@ public class ReqestProcessorTest {
 	 * @throws IOException
 	 */
 	@Test
-	public void testGetTypeAndGetContent() throws ClassNotFoundException,
+	public void testGetTypeAndGetContentAndGetCollection() throws ClassNotFoundException,
 			IOException {
-		Request request = new Request().setType(Request.MESSAGE).setContent(
-				"Conta");
+		List<Integer> testCollection  = new ArrayList<>();
+		testCollection.add(5);
+		Request request = new Request().setType(Request.MESSAGE).setContent("Conta").addCollection(testCollection);
 		RequestProcessor processor = new RequestProcessor(new FileOutputStream(new File("save.ser")));
 		processor.sendRequest(request);
 		processor = new RequestProcessor(new FileInputStream(
 				new File("save.ser")));
 		Request recieved = processor.receiveRequest();
+		
 		assertEquals(Request.MESSAGE, recieved.getType());
 		assertEquals("Conta", recieved.getContent());
+		assertEquals(testCollection, recieved.getCollection());
+		processor.closeStream();
 
 	}
 
