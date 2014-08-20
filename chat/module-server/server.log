@@ -1,0 +1,56 @@
+INFO  Server  - [ 04:18:03] <radko>is trying to connect.
+
+INFO  Server  - [ 04:18:03] <radko> has connected.
+
+INFO  Server  - [ 04:18:03] Client added
+
+INFO  Server  - [ 04:18:16] <asf>is trying to connect.
+
+INFO  Server  - [ 04:18:16] <asf> has connected.
+
+INFO  Server  - [ 04:18:16] Client added
+
+INFO  Server  - [ 04:18:16] broadcasting to all [04:18:16] <asf> Asf
+
+INFO  Server  - [ 04:18:16] <radko> has disconnected. msg sent!
+
+INFO  Server  - [ 04:18:16] <asf> has disconnected. msg sent!
+
+INFO  Server  - [ 04:19:35] <asf>is trying to connect.
+
+INFO  Server  - [ 04:19:35] <asf> has connected.
+
+INFO  Server  - [ 04:19:35] Client added
+
+INFO  Server  - [ 04:19:37] <vs>is trying to connect.
+
+INFO  Server  - [ 04:19:37] <vs> has connected.
+
+INFO  Server  - [ 04:19:37] Client added
+
+INFO  Server  - [ 04:19:40] broadcasting to all [04:19:40] <asf> Asf
+
+INFO  Server  - [ 04:19:42] broadcasting to all [04:19:42] <vs> As
+
+INFO  Server  - [ 04:19:49] <asf> has disconnected. msg sent!
+
+INFO  Server  - [ 04:19:50] <vs> has disconnected. msg sent!
+
+INFO  Server  - [ 04:20:11] <radko>is trying to connect.
+
+INFO  Server  - [ 04:20:11] <radko> has connected.
+
+INFO  Server  - [ 04:20:11] Client added
+
+INFO  Server  - [ 04:20:17] <A>is trying to connect.
+
+INFO  Server  - [ 04:20:17] <A> has connected.
+
+INFO  Server  - [ 04:20:17] Client added
+
+INFO  Server  - [ 04:20:21] broadcasting to all [04:20:21] <A> A
+
+INFO  Server  - [ 04:20:23] <A> has disconnected. msg sent!
+
+INFO  Server  - [ 04:20:26] <radko> has disconnected. msg sent!
+
