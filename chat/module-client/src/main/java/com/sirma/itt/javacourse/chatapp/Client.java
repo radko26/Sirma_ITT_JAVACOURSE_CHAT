@@ -121,37 +121,29 @@ public class Client extends SwingWorker<Void, Void> {
 				if (request.getType() == Request.LOGIN_AUTH
 						&& !request.isSuccessful()) {
 					running.set(false);
-					LoginPanel loginPanel = (LoginPanel) frame.getContentPane();
+					if (frame != null) {
+						LoginPanel loginPanel = (LoginPanel) frame
+								.getContentPane();
+						loginPanel.setErrorMsg();
+					}
 					errorInUsername = true;
-					loginPanel.setErrorMsg();
 				} else if (request.getType() == Request.LOGIN_AUTH) {
-					try {// to change to GUI panel.
+					onlineUsers = new HashSet(request.getCollection());
+					LogHandler.log(request.getContent());
+					if (frame != null) {// to change to GUI panel.
 						chatPanel = new ChatPanel(frame);
 						frame.getContentPane().removeAll();
 						frame.setContentPane(chatPanel);
 						frame.getContentPane().repaint();
 						frame.pack();
-
 						chatPanel.log(request.getContent());
-						onlineUsers = new HashSet(request.getCollection());
-						LogHandler.log(request.getContent());
-						try {
-							updateOnlineUsersGUI(chatPanel);
-						} catch (InvocationTargetException
-								| InterruptedException e) {
-							e.printStackTrace();
-						}
-					} catch (NullPointerException e) {// without GUI.
-						onlineUsers = new HashSet(request.getCollection());
-						LogHandler.log(request.getContent());
+						updateOnlineUsersGUI(chatPanel);
 					}
 				} else if (request.getType() == Request.MESSAGE) {
-					try {
+					if (frame != null) {
 						chatPanel.log(request.getContent());
-						LogHandler.log(request.getContent());
-					} catch (NullPointerException e) {
-						LogHandler.log(request.getContent());
 					}
+					LogHandler.log(request.getContent());
 				} else {// Request for disconnected or connected user.
 					Matcher matcher = PATTERN.matcher(request.getContent());
 					matcher.find();
@@ -160,12 +152,7 @@ public class Client extends SwingWorker<Void, Void> {
 						onlineUsers.remove(username);
 						if (frame != null) {
 							chatPanel.log(request.getContent());
-							try {
-								updateOnlineUsersGUI(chatPanel);
-							} catch (InvocationTargetException
-									| InterruptedException e) {
-								e.printStackTrace();
-							}
+							updateOnlineUsersGUI(chatPanel);
 						} else {// no gui specified log it to the file and
 								// console.
 							LogHandler.log(username
@@ -176,12 +163,7 @@ public class Client extends SwingWorker<Void, Void> {
 						if (frame != null) {// if there is no frame null pointer
 							// will be thrown.
 							chatPanel.log(request.getContent());
-							try {
-								updateOnlineUsersGUI(chatPanel);
-							} catch (InvocationTargetException
-									| InterruptedException e) {
-								e.printStackTrace();
-							}
+							updateOnlineUsersGUI(chatPanel);
 						} else {
 							LogHandler.log(username
 									+ " added to the list of users");
@@ -201,8 +183,7 @@ public class Client extends SwingWorker<Void, Void> {
 	 *             If the process has been interrupted.
 	 * @throws InvocationTargetException
 	 */
-	private void updateOnlineUsersGUI(final ChatPanel panel)
-			throws InvocationTargetException, InterruptedException {
+	private void updateOnlineUsersGUI(final ChatPanel panel) {
 		final StringBuilder list = new StringBuilder();
 		for (String user : onlineUsers) {
 			list.append(user).append("\n");
