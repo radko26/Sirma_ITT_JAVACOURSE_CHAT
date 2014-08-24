@@ -20,17 +20,16 @@ public class LogHandler {
 	private static final DateFormat TIME_FORMAT = new SimpleDateFormat(
 			"hh:mm:ss");
 	private static JTextArea guiLoggingField;
-	private static LogHandler handler;
 
 	static {
-		handler = new LogHandler();
+		setUpLogging();
 	}
 
 	/**
-	 * Initialises the logger.
+	 * Disable instancing.
 	 */
 	private LogHandler() {
-		setUpLogging();
+		
 	}
 
 	/**
@@ -53,7 +52,7 @@ public class LogHandler {
 				}
 			});
 		} else {
-			handler.LOG.info(log);
+			LOG.info(log);
 		}
 	}
 

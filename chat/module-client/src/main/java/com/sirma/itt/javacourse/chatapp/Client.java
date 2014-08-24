@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
@@ -16,7 +17,6 @@ import java.util.regex.Pattern;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
 /**
@@ -128,7 +128,7 @@ public class Client extends SwingWorker<Void, Void> {
 					}
 					errorInUsername = true;
 				} else if (request.getType() == Request.LOGIN_AUTH) {
-					onlineUsers = new HashSet(request.getCollection());
+					onlineUsers = new HashSet<String>((Collection<? extends String>) request.getCollection());
 					LogHandler.log(request.getContent());
 					if (frame != null) {// to change to GUI panel.
 						chatPanel = new ChatPanel(frame);

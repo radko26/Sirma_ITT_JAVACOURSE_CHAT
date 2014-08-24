@@ -10,18 +10,17 @@ import org.apache.log4j.PropertyConfigurator;
  */
 public class LogHandler {
 	private static final Logger LOG = Logger.getLogger(Client.class);
-	private static LogHandler handler;
 
 	static {
-		handler = new LogHandler();
+		PropertyConfigurator.configure(LogHandler.class
+				.getResourceAsStream("log4j.properties"));
 	}
 
 	/**
-	 * Initialies the property file for the {@link Logger}.
+	 * Disable further instances.
 	 */
 	private LogHandler() {
-		PropertyConfigurator.configure(LogHandler.class
-				.getResourceAsStream("log4j.properties"));
+		
 	}
 
 	/**
@@ -31,7 +30,7 @@ public class LogHandler {
 	 *            The message.
 	 */
 	public static void log(String msg) {
-		handler.LOG.info(msg);
+		LogHandler.LOG.info(msg);
 	}
 
 }
