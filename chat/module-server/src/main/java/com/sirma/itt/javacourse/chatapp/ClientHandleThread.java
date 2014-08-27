@@ -49,12 +49,13 @@ public class ClientHandleThread extends Thread {
 	@Override
 	public void run() {
 		Request userAuth = null;
-		// userAuth holds the username as content if it connected to the server.
+		// userAuth holds the username as content if it is connected to the
+		// server.
 		try {
 			processor = new RequestProcessor(client.getInputStream(),
 					client.getOutputStream());
 			userAuth = processor.receiveRequest();
-			// Logs the try-connect msg.
+			// Logs the auth-connect msg.
 
 			LogHandler.log(new StringBuilder().append("<")
 					.append(userAuth.getContent()).append(">")
@@ -128,9 +129,7 @@ public class ClientHandleThread extends Thread {
 						LogHandler
 								.log("error in sending it to the other connected");
 					}
-
 				}
-
 			} else {
 				LogHandler.log(e.toString());
 			}
@@ -189,9 +188,10 @@ public class ClientHandleThread extends Thread {
 	 * @return True if it is correct, otherwise false.
 	 */
 	private boolean checkUsernameAuth(Request loginAuth) {
-		
+
 		loginAuth.setContent(loginAuth.getContent().toLowerCase()
-				.replaceAll("[\\s]+", ""));// formats in proper case and deletes all spaces.
+				.replaceAll("[\\s]+", ""));// formats in proper case and deletes
+											// all spaces.
 		String username = loginAuth.getContent();
 		int type = loginAuth.getType();
 		if (type != Request.LOGIN_AUTH) {
