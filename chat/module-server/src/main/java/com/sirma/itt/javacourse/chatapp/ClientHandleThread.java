@@ -189,7 +189,10 @@ public class ClientHandleThread extends Thread {
 	 * @return True if it is correct, otherwise false.
 	 */
 	private boolean checkUsernameAuth(Request loginAuth) {
-		String username = loginAuth.getContent().toLowerCase();
+		
+		loginAuth.setContent(loginAuth.getContent().toLowerCase()
+				.replaceAll("[\\s]+", ""));// formats in proper case and deletes all spaces.
+		String username = loginAuth.getContent();
 		int type = loginAuth.getType();
 		if (type != Request.LOGIN_AUTH) {
 			return false;

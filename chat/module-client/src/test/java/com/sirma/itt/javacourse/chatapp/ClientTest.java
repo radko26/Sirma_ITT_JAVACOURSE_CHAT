@@ -14,7 +14,6 @@ import org.junit.Test;
  * 
  * @author Radoslav
  */
-//@RunWith(MockitoJUnitRunner.class)
 public class ClientTest {
 
 	/**
