@@ -56,11 +56,6 @@ public class ChatPanel extends Panel implements KeyListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				running.set(false);
-				try {
-					Thread.sleep(100);// wait some time so other threads can stop.
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
 				System.exit(0);
 			}
 		});

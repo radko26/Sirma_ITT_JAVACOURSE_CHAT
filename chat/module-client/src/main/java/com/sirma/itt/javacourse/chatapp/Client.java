@@ -178,10 +178,6 @@ public class Client extends SwingWorker<Void, Void> {
 
 	/**
 	 * Loops through the connected users and draw them to the GUI field.
-	 * 
-	 * @throws InterruptedException
-	 *             If the process has been interrupted.
-	 * @throws InvocationTargetException
 	 */
 	private void updateOnlineUsersGUI(final ChatPanel panel) {
 		final StringBuilder list = new StringBuilder();
