@@ -3,15 +3,11 @@ package com.sirma.itt.javacourse.chatapp;
 import java.io.IOException;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
-
-import com.sirma.itt.javacourse.chatapp.Request;
-import com.sirma.itt.javacourse.chatapp.RequestProcessor;
 
 /**
  * Class that cope with each client.
@@ -21,8 +17,7 @@ import com.sirma.itt.javacourse.chatapp.RequestProcessor;
 public class ClientHandleThread extends Thread {
 	private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat(
 			"hh:mm:ss");
-	private static Set<String> onlineUsers = Collections
-			.synchronizedSet(new HashSet<String>());
+	private static Set<String> onlineUsers = new HashSet<String>();
 	private Socket client;
 	private AtomicBoolean running;
 	private List<ClientHandleThread> connected;
