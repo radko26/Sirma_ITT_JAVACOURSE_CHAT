@@ -94,7 +94,6 @@ public class Client extends SwingWorker<Void, Void> {
 				.load(this.getClass().getResourceAsStream("setup.properties"));
 		HOST = properties.getProperty("host", "localhost");
 		PORT = Integer.valueOf(properties.getProperty("port", "7001"));
-		ContentLanguageManager.setLanguage(properties.getProperty("lang"));
 	}
 
 	@Override
