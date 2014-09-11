@@ -73,7 +73,6 @@ public class Server extends Thread {
 		properties
 				.load(this.getClass().getResourceAsStream("setup.properties"));
 		PORT = Integer.valueOf(properties.getProperty("port", "7001"));
-		ContentLanguageManager.setLanguage(properties.getProperty("lang"));
 	}
 
 	@Override

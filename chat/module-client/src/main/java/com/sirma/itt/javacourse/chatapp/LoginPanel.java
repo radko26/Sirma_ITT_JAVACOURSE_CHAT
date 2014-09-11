@@ -19,7 +19,7 @@ import javax.swing.JTextField;
  * 
  * @author Radoslav
  */
-public class LoginPanel extends Panel implements ActionListener {
+public class LoginPanel extends Panel{
 	private static final long serialVersionUID = -8753238185409094676L;
 
 	private JTextField usernameField = new JTextField();
@@ -43,7 +43,24 @@ public class LoginPanel extends Panel implements ActionListener {
 		setPreferredSize(new Dimension(width, height));
 		usernameField.setPreferredSize(new Dimension(185, 25));
 		signUpButton.setMargin(new Insets(5, 5, 5, 5));
-		signUpButton.addActionListener(this);
+		signUpButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(ContentLanguageManager.getNextLanguage());//TODO
+				try {
+					running.set(true);
+					new Client(running, applicationFrameWindow).execute();
+					usernameField.setEditable(false);
+				} catch (IOException e1) {
+					errorField.setVisible(true);
+					errorField.setText(ContentLanguageManager
+							.getContent("server_not_found"));
+					errorFromHost = true;
+				}
+				
+			}
+		});
 
 		errorField.setEnabled(true);
 		errorField.setVisible(false);
@@ -59,12 +76,13 @@ public class LoginPanel extends Panel implements ActionListener {
 	/**
 	 * Sets error message on the screen.
 	 */
-	public void setErrorMsg() {
+	public void setErrorMsg(String msg) {
 		errorField.setVisible(true);
 		errorFromHost = false;
 		errorField.setText(ContentLanguageManager
 				.getContent("invalid_username_message"));
 		usernameField.setEditable(true);
+		LogHandler.log(msg);
 	}
 
 	@Override
@@ -90,23 +108,4 @@ public class LoginPanel extends Panel implements ActionListener {
 	public String getEnteredUsername() {
 		return usernameField.getText();
 	}
-
-	/**
-	 * Changes the screen to the next state, tries to connect to the server.
-	 * 
-	 */
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		try {
-			running.set(true);
-			new Client(running, applicationFrameWindow).execute();
-			usernameField.setEditable(false);
-		} catch (IOException e1) {
-			errorField.setVisible(true);
-			errorField.setText(ContentLanguageManager
-					.getContent("server_not_found"));
-			errorFromHost = true;
-		}
-	}
-
 }

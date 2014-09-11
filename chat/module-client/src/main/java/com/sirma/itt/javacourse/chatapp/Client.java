@@ -1,7 +1,6 @@
 package com.sirma.itt.javacourse.chatapp;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Collection;
@@ -32,7 +31,7 @@ public class Client extends SwingWorker<Void, Void> {
 	private static String HOST;
 	private static BlockingQueue<Request> toServer = new LinkedBlockingQueue<>();
 	private BlockingQueue<Request> fromServer = new LinkedBlockingQueue<>();
-	private Set<String> onlineUsers;
+	private OnlineUsersHandler onlineUsers;
 	private ClientReader clientReader;
 	private ClientWriter clientWriter;
 	private Socket server;
@@ -79,7 +78,6 @@ public class Client extends SwingWorker<Void, Void> {
 		server = new Socket(HOST, PORT);
 		this.running = running;
 		this.frame = frame;
-
 	}
 
 	/**
@@ -94,7 +92,6 @@ public class Client extends SwingWorker<Void, Void> {
 				.load(this.getClass().getResourceAsStream("setup.properties"));
 		HOST = properties.getProperty("host", "localhost");
 		PORT = Integer.valueOf(properties.getProperty("port", "7001"));
-		ContentLanguageManager.setLanguage(properties.getProperty("lang"));
 	}
 
 	@Override
@@ -124,11 +121,13 @@ public class Client extends SwingWorker<Void, Void> {
 					if (frame != null) {
 						LoginPanel loginPanel = (LoginPanel) frame
 								.getContentPane();
-						loginPanel.setErrorMsg();
+						loginPanel.setErrorMsg(request.getContent());
 					}
 					errorInUsername = true;
 				} else if (request.getType() == Request.LOGIN_AUTH) {
-					onlineUsers = new HashSet<String>((Collection<? extends String>) request.getCollection());
+					onlineUsers = new OnlineUsersHandler(new HashSet<String>(
+							(Collection<? extends String>) request
+									.getCollection()));
 					LogHandler.log(request.getContent());
 					if (frame != null) {// to change to GUI panel.
 						chatPanel = new ChatPanel(frame);
@@ -181,7 +180,7 @@ public class Client extends SwingWorker<Void, Void> {
 	 */
 	private void updateOnlineUsersGUI(final ChatPanel panel) {
 		final StringBuilder list = new StringBuilder();
-		for (String user : onlineUsers) {
+		for (String user : onlineUsers.getUsers()) {
 			list.append(user).append("\n");
 		}
 
@@ -200,7 +199,7 @@ public class Client extends SwingWorker<Void, Void> {
 						.createDialog("Critical error.");
 				errorPaneDialog.setVisible(true);
 			}
-			LogHandler.log("Server stopped here");
+			LogHandler.log("Server stopped");
 		}
 		try {
 			server.close();

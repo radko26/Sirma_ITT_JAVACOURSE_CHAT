@@ -42,7 +42,6 @@ public class ReqestProcessorTest {
 		assertEquals("Conta", recieved.getContent());
 		assertEquals(testCollection, recieved.getCollection());
 		processor.closeStream();
-
 	}
 
 }
