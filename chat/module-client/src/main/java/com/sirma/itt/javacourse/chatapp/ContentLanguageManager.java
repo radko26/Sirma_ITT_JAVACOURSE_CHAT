@@ -13,14 +13,22 @@ import java.util.ResourceBundle;
  */
 public class ContentLanguageManager {
 	private static final Locale BG = new Locale("BG");
+<<<<<<< HEAD
 	private static ResourceBundle content;
+=======
+	private static ResourceBundle content = ResourceBundle.getBundle(
+			"com.sirma.itt.javacourse.chatapp.content", BG);
+>>>>>>> 7d3c04dbd4f7db2509965669fe4cdd9ec0ee4a3e
 	private static Map<String, Locale> languageSupport = new HashMap<>();
 	private static Map<String, String> nextLanguage = new HashMap<>();
 	private static String nextAvailableLanguage = "EN";
 
 	static {
+<<<<<<< HEAD
 		content = ResourceBundle.getBundle(
 				"com.sirma.itt.javacourse.chatapp.content", BG);
+=======
+>>>>>>> 7d3c04dbd4f7db2509965669fe4cdd9ec0ee4a3e
 		languageSupport.put("BG", BG);
 		languageSupport.put("EN", Locale.ENGLISH);
 
