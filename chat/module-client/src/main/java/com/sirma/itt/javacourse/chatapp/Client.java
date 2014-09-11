@@ -6,12 +6,9 @@ import java.net.UnknownHostException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Properties;
-import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -26,7 +23,6 @@ import javax.swing.SwingWorker;
  * @author Radoslav
  */
 public class Client extends SwingWorker<Void, Void> {
-	private static final Pattern PATTERN = Pattern.compile("<([^<|>]+?)>");
 	private static int PORT;
 	private static String HOST;
 	private static BlockingQueue<Request> toServer = new LinkedBlockingQueue<>();
@@ -143,14 +139,17 @@ public class Client extends SwingWorker<Void, Void> {
 						chatPanel.log(request.getContent());
 					}
 					LogHandler.log(request.getContent());
-				} else {// Request for disconnected or connected user.
-					Matcher matcher = PATTERN.matcher(request.getContent());
-					matcher.find();
-					String username = matcher.group(1);
+				} else {
+					String username = request.getContent();
 					if (onlineUsers.contains(username)) {
 						onlineUsers.remove(username);
 						if (frame != null) {
-							chatPanel.log(request.getContent());
+							chatPanel.log(new StringBuilder("<")
+									.append(request.getContent())
+									.append("> ")
+									.append(ContentLanguageManager
+											.getContent("user_has_disconnected"))
+									.toString());
 							updateOnlineUsersGUI(chatPanel);
 						} else {// no gui specified log it to the file and
 								// console.
@@ -161,7 +160,12 @@ public class Client extends SwingWorker<Void, Void> {
 						onlineUsers.add(username);
 						if (frame != null) {// if there is no frame null pointer
 							// will be thrown.
-							chatPanel.log(request.getContent());
+							chatPanel.log(new StringBuilder("<")
+							.append(request.getContent())
+							.append("> ")
+							.append(ContentLanguageManager
+									.getContent("user_has_connected"))
+							.toString());
 							updateOnlineUsersGUI(chatPanel);
 						} else {
 							LogHandler.log(username
@@ -194,7 +198,7 @@ public class Client extends SwingWorker<Void, Void> {
 			if (frame != null) {
 
 				JOptionPane errorPane = new JOptionPane(
-						"Server has stopped working.");
+						"Server has stopped working.Sending to the reconnect screen //TBA");
 				JDialog errorPaneDialog = errorPane
 						.createDialog("Critical error.");
 				errorPaneDialog.setVisible(true);

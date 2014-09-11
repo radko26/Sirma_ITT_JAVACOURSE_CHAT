@@ -72,7 +72,7 @@ public class ChatPanel extends Panel implements KeyListener {
 	 *            The message.
 	 */
 	public void log(String msg) {
-		msg = msg + "\n";
+		msg = LogHandler.getTime() + msg + "\n";
 		oldMsgField.append(msg);
 	}
 

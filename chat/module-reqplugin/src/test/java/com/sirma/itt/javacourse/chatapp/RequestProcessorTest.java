@@ -17,7 +17,7 @@ import org.junit.Test;
  * 
  * @author Radoslav
  */
-public class ReqestProcessorTest {
+public class RequestProcessorTest {
 
 	/**
 	 * Creates a {@link RequestProcessor} and saves it to a file which is after
