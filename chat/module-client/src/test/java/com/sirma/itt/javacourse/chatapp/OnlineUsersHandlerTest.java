@@ -15,13 +15,14 @@ import org.junit.Test;
 public class OnlineUsersHandlerTest {
 
 	private OnlineUsersHandler users;
+	private Set<String> testSet = new HashSet<>();
 
 	/**
 	 * Initialises objects.
 	 */
 	@Before
 	public void init() {
-		Set<String> testSet = new HashSet<>();
+		
 		testSet.add("Masha");
 		testSet.add("Medved");
 
@@ -71,6 +72,14 @@ public class OnlineUsersHandlerTest {
 	public void testContains() {
 		assertTrue(users.contains("Medved"));
 		assertTrue(!users.contains("Lady In Black"));
+	}
+	
+	/**
+	 * Checks returned list full of online users.
+	 */
+	@Test
+	public void testGetUsers(){
+		assertEquals(testSet.toString(),users.getUsers().toString());
 	}
 
 }

@@ -70,9 +70,9 @@ public class Server extends Thread {
 	 */
 	private void setConnectionProperties() throws IOException {
 		Properties properties = new Properties();
-		properties
-				.load(this.getClass().getResourceAsStream("setup.properties"));
+		properties.load(this.getClass().getResourceAsStream("setup.properties"));
 		PORT = Integer.valueOf(properties.getProperty("port", "7001"));
+		ContentLanguageManager.setLanguage("BG");
 	}
 
 	@Override
